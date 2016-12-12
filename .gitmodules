@@ -1,3 +1,6 @@
 [submodule "libs/gvr-unity-sdk"]
 	path = libs/gvr-unity-sdk
 	url = https://github.com/googlevr/gvr-unity-sdk.git
+[submodule "gvr-unity-sdk"]
+	path = gvr-unity-sdk
+	url = https://github.com/googlevr/gvr-unity-sdk.git
