@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System;
 using UnityEngine;
 
 /// Draws a circular reticle in front of any object that the user points at.
@@ -205,6 +206,8 @@ public class GvrReticlePointer : GvrBasePointer {
 
   private void SetPointerTarget(Vector3 target, bool interactive) {
     Vector3 targetLocalPosition = transform.InverseTransformPoint(target);
+
+        Debug.Log("Target: " + target);
 
     reticleDistanceInMeters =
         Mathf.Clamp(targetLocalPosition.z, kReticleDistanceMin, kReticleDistanceMax);
