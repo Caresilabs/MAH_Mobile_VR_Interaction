@@ -129,16 +129,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010216930576, guid: 312c5340ce478a4408ffaa07a6c32ddb,
-        type: 2}
-      propertyPath: reticleGrowthSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011348075438, guid: 312c5340ce478a4408ffaa07a6c32ddb,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.86
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 312c5340ce478a4408ffaa07a6c32ddb, type: 2}
   m_IsPrefabParent: 0
@@ -310,6 +300,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000011329493454, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: challenges.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000014272190498, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -342,6 +337,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011329493454, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: challenges.Array.data[0]
+      value: 
+      objectReference: {fileID: 1666892811}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}
   m_IsPrefabParent: 0
