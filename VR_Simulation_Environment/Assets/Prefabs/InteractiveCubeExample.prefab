@@ -22,8 +22,8 @@ GameObject:
   - 33: {fileID: 33000011828420958}
   - 65: {fileID: 65000010306904150}
   - 23: {fileID: 23000012780598620}
-  - 114: {fileID: 114000010305217580}
   - 114: {fileID: 114000014170379218}
+  - 114: {fileID: 114000013238877482}
   m_Layer: 0
   m_Name: InteractiveCubeExample
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011096140018}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.029, y: 1.639, z: 1.933}
+  m_LocalPosition: {x: 0.37464666, y: 1.29, z: 3.0862222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010305217580
+--- !u!114 &114000013238877482
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
