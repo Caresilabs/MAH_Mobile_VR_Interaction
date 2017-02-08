@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts
 {
-    interface IChallenge
+    public interface IChallenge
     {
         void StartChallenge();       //Start the challange
 
