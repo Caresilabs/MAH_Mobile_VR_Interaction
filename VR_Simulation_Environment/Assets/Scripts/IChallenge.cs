@@ -7,8 +7,8 @@ namespace Assets.Scripts
 {
     public interface IChallenge
     {
-        void Start();       //Start the challange
+        void StartChallenge();       //Start the challange
 
-        void Stop();        //Stop the challange
+        void StopChallenge();        //Stop the challange
     }
 }
