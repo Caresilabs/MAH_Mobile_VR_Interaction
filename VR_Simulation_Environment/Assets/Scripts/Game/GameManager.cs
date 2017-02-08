@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour {
     {
         State = LevelState.COMPETITION;
 
-        CurrentChallenge.Start();
+        CurrentChallenge = challenges[0].GetComponent<IChallenge>();
+        CurrentChallenge.StartChallenge();
     }
 
     // Update is called once per frame
@@ -51,14 +52,14 @@ public class GameManager : MonoBehaviour {
     {
         if (State == LevelState.PRACTICE)
         {
-            CurrentChallenge.Stop();
+            CurrentChallenge.StopChallenge();
             State = LevelState.COMPETITION;
 
-            CurrentChallenge.Start();
+            CurrentChallenge.StartChallenge();
         }
         else
         {
-            CurrentChallenge.Stop();
+            CurrentChallenge.StopChallenge();
 
             ++challengeIndex;
             if (challengeIndex >= challenges.Count)
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour {
             else
             {
                 CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
-                CurrentChallenge.Start();
+                CurrentChallenge.StartChallenge();
             }
         }
     }
