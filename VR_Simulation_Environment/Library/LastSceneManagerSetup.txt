@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Target Range.unity
+- path: Assets/Scenes/Maze Challenge.unity
   isLoaded: 1
   isActive: 1

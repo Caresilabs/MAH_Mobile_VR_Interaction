@@ -12,20 +12,23 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
     [SerializeField]
     private GameObject          Target;
 
-    private int                 currentChild;
+    [SerializeField]
+    protected Player              Player;
 
+    private int                 currentChild;
     private GameObject          currentTarget;
 
 
-    public void StartChallenge()
+    public virtual void StartChallenge()
     {
         currentChild = 0;
         spawnTarget();
+        Player.SetMovement(Player.MOVEMENT_TYPE.STILL);
     }
 
-    public void StopChallenge()
+    public virtual void StopChallenge()
     {
-
+        Destroy(currentTarget);
     }
 
     private void spawnTarget()
@@ -44,7 +47,6 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
     }
 
     void Start () {
-        StartChallenge();
     }
 	
 	void Update () {

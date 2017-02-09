@@ -19,6 +19,8 @@ using UnityEngine;
 [AddComponentMenu("GoogleVR/UI/GvrReticlePointer")]
 [RequireComponent(typeof(Renderer))]
 public class GvrReticlePointer : GvrBasePointer {
+
+    public Player player;
   /// Number of segments making the reticle circle.
   public int reticleSegments = 20;
 
@@ -79,6 +81,8 @@ public class GvrReticlePointer : GvrBasePointer {
   /// The intersectionRay is the ray that was cast to determine the intersection.
   public override void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition,
      Ray intersectionRay, bool isInteractive) {
+        if (player != null && isInteractive)
+            player.OnPointerEnter(targetObject, intersectionPosition, intersectionRay, isInteractive);
     SetPointerTarget(intersectionPosition, isInteractive);
   }
 
@@ -90,7 +94,10 @@ public class GvrReticlePointer : GvrBasePointer {
   /// The intersectionRay is the ray that was cast to determine the intersection.
   public override void OnPointerHover(GameObject targetObject, Vector3 intersectionPosition,
       Ray intersectionRay, bool isInteractive) {
-    SetPointerTarget(intersectionPosition, isInteractive);
+        if (player != null && isInteractive)
+            player.OnPointerHover(targetObject, intersectionPosition, intersectionRay, isInteractive);
+
+        SetPointerTarget(intersectionPosition, isInteractive);
   }
 
   /// Called when the user's look no longer intersects an object previously
@@ -98,6 +105,8 @@ public class GvrReticlePointer : GvrBasePointer {
   /// This is also called just before **OnInputModuleDisabled** and may have have any of
   /// the values set as **null**.
   public override void OnPointerExit(GameObject targetObject) {
+    if (player != null)
+        player.OnPointerExit(targetObject);
     reticleDistanceInMeters = kReticleDistanceMax;
     reticleInnerAngle = kReticleMinInnerAngle;
     reticleOuterAngle = kReticleMinOuterAngle;
