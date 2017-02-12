@@ -14,11 +14,11 @@ public class TargetScript : MonoBehaviour, IGvrGazeResponder
 
     private float           STARE_TIME = 0.3f;
 
-    public bool             dead { get; private set; }
+    public bool             Dead { get; private set; }
 
     void Start () {
         meshRenderer = GetComponent<MeshRenderer>();
-        sphereCollider = GetComponent<SphereCollider>();
+        sphereCollider = GetComponent<SphereCollider>(); 
     }
 	
 	void Update () {
@@ -31,7 +31,7 @@ public class TargetScript : MonoBehaviour, IGvrGazeResponder
                 ParticleSystem.Play();
                 meshRenderer.enabled = false;
                 sphereCollider.enabled = false;
-                dead = true;
+                Dead = true;
             }
         }
 	}

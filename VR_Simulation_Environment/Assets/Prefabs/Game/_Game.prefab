@@ -39,6 +39,7 @@ GameObject:
   - 114: {fileID: 114000011329493454}
   - 114: {fileID: 114000011189200236}
   - 114: {fileID: 114000011680131204}
+  - 114: {fileID: 114000014134094402}
   m_Layer: 0
   m_Name: _Game
   m_TagString: Untagged
@@ -398,6 +399,18 @@ MonoBehaviour:
   player: {fileID: 114000012901927778}
   reticleSegments: 20
   reticleGrowthSpeed: 20
+--- !u!114 &114000014134094402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010105359468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835b74a46c0b3f94eb930080d7e32e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 114000011329493454}
 --- !u!124 &124000012506370670
 Behaviour:
   m_ObjectHideFlags: 1

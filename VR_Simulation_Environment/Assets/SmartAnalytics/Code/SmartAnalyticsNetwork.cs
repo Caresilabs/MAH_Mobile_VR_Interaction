@@ -72,7 +72,7 @@ public static class SmartAnalyticsNetwork
 			if( s_dummyBehaviour == null )
 			{
 				s_dummyObject = new GameObject();
-				s_dummyBehaviour = s_dummyObject.AddComponent< MonoBehaviour >() as MonoBehaviour;
+				s_dummyBehaviour = s_dummyObject.AddComponent< DummyScript >() as MonoBehaviour;
 				s_dummyObject.name = "DummyObjectForNetworkingCoroutines";
 				s_dummyObject.transform.position = -Vector3.one * 10000000f;
 			}
