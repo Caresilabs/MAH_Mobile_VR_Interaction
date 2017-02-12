@@ -10,9 +10,6 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
     private const float TARGET_TOTAL_TIME = 30;
 
     [SerializeField]
-    private List<BoxCollider>   SpawnBoxColliders;
-
-    [SerializeField]
     private GameObject          Target;
 
     [SerializeField]

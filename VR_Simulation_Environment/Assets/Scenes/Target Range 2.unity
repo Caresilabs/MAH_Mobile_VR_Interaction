@@ -308,7 +308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1090537506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b0c87de97930d44b0d283554aaf25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnBoxColliders: []
   Target: {fileID: 469503600}
   GameManager: {fileID: 237922966}
   ScoreText: {fileID: 1155714040}
@@ -564,7 +563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1666892812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7deb7d684be62ec4b8527e7974238a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnBoxColliders: []
   Target: {fileID: 469503600}
   GameManager: {fileID: 237922966}
   ScoreText: {fileID: 1155714040}
@@ -870,6 +868,16 @@ Prefab:
         type: 2}
       propertyPath: reticleGrowthSpeed
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011189200236, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: vrModeOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010921639494, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}

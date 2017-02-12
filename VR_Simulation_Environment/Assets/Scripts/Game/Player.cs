@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
         switch (MoveType)
         {
             case MovementType.STILL: break;
-            case MovementType.RAYCAST_MOVEMENT: break;
+            case MovementType.RAYCAST_MOVEMENT:
+                break;
             case MovementType.MOTION_MOVEMENT: break;
             case MovementType.POINT_MOVEMENT:
                 if (targetObj != null)
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour
 
     public void OnPointerHover(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)
     {
-
+        print(intersectionPosition);
     }
 
     public void OnPointerExit(GameObject targetObject)
