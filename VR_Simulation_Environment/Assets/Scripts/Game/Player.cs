@@ -29,20 +29,26 @@ public class Player : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody>();
 	}
 	
-	void Update () {
-        if(controllerEnabled)
+	void Update ()
+    {
+        UpdateController();
+
+        UpdateMovement();
+
+    }
+
+    private void UpdateController()
+    {
+        if (controllerEnabled)
         {
             //update camera by controller here and add senecetivity
             if (Input.anyKey)
             {
-                
+
             }
             //
         }
-
-        UpdateMovement();
-
-	}
+    }
 
     private void UpdateMovement()
     {

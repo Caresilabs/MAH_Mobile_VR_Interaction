@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour {
     public AnalyticsSampler Analytics { get; private set; }
 
     [SerializeField]
+    private List<GameObject> vrChallenges;
+
+    [SerializeField]
+    private List<GameObject> controllerChallenges;
+
     private List<GameObject> challenges;
 
     private GvrReticlePointer pointer;
@@ -30,6 +35,8 @@ public class GameManager : MonoBehaviour {
         this.Analytics = GetComponent<AnalyticsSampler>();
 
         this.pointer = FindObjectOfType<GvrReticlePointer>();
+
+        this.challenges = GlobalManager.ControllerBuild ? controllerChallenges : vrChallenges;
         this.challengeIndex = 0;
 
         Begin();
