@@ -94,6 +94,7 @@ GameObject:
   - 114: {fileID: 114000012901927778}
   - 54: {fileID: 54000012575887538}
   - 136: {fileID: 136000011101233334}
+  - 114: {fileID: 114000010921639494}
   m_Layer: 2
   m_Name: _Player
   m_TagString: Untagged
@@ -232,7 +233,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!81 &81000010434178182
 AudioListener:
@@ -248,6 +249,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011212276306}
   m_Enabled: 1
+--- !u!114 &114000010921639494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013738924000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b1fbc11d9629c45b459659627ebf0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011087438470
 MonoBehaviour:
   m_ObjectHideFlags: 1

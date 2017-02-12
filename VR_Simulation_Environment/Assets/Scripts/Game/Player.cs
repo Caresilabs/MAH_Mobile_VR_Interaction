@@ -4,6 +4,8 @@ using System;
 
 public class Player : MonoBehaviour {
 
+    public const float MOVE_SPEED = 3;
+
     private bool            controllerEnabled;
     private GameObject      camera;
     private MOVEMENT_TYPE   moveType;
@@ -31,24 +33,22 @@ public class Player : MonoBehaviour {
 	
 	void Update ()
     {
-        UpdateController();
-
         UpdateMovement();
 
     }
 
-    private void UpdateController()
-    {
-        if (controllerEnabled)
-        {
-            //update camera by controller here and add senecetivity
-            if (Input.anyKey)
-            {
+    //private void UpdateController()
+    //{
+    //    if (controllerEnabled)
+    //    {
+    //        //update camera by controller here and add senecetivity
+    //        if (Input.anyKey)
+    //        {
 
-            }
-            //
-        }
-    }
+    //        }
+    //        //
+    //    }
+    //}
 
     private void UpdateMovement()
     {
