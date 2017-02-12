@@ -5,16 +5,16 @@ public class GlobalManager : MonoBehaviour {
 
     public static bool ControllerBuild { get; private set; }
 
-    // Use this for initialization
     void Start () {
         DontDestroyOnLoad(this);
 
         ControllerBuild = Application.platform != RuntimePlatform.Android;
+        ControllerBuild = false; // TODO DEBUG ONLY
 
-        ControllerBuild = true; // TODO DEBUG ONLY
+        GvrViewer.Instance.VRModeEnabled = !ControllerBuild;
     }
 	
 	void Update () {
-	
 	}
+
 }

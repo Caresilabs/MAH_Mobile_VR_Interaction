@@ -5,7 +5,6 @@ public class TargetChallengeVR : TargetChallenge {
 
     public override void StartChallenge()
     {
-        Player.SetVrMode();
         base.StartChallenge();
     }
 

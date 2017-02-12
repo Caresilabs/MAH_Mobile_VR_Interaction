@@ -2,22 +2,25 @@
 using System.Collections;
 using System;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     public const float MOVE_SPEED = 3;
 
-    private bool            controllerEnabled;
-    private GameObject      camera;
-    private MOVEMENT_TYPE   moveType;
-    private Rigidbody       rigidBody;
+
+    public MovementType MoveType { get; private set; }
+
+    private GameObject camera;
+
+    private Rigidbody rigidBody;
 
     //PointMove
-    private GameObject      targetObj;
-    private float           POINT_LOOK_TIME = 0.3f;
+    private GameObject targetObj;
+    private float POINT_LOOK_TIME = 0.3f;
 
-    private float           currentTime;
+    private float currentTime;
 
-    public enum MOVEMENT_TYPE
+    public enum MovementType
     {
         STILL,
         MOTION_MOVEMENT,
@@ -26,42 +29,34 @@ public class Player : MonoBehaviour {
         CONTROLLER_MOVEMENT
     }
 
-	void Start () {
+    void Start()
+    {
         camera = GetComponentInChildren<Camera>().gameObject;
         rigidBody = GetComponent<Rigidbody>();
-	}
-	
-	void Update ()
-    {
-        UpdateMovement();
 
+        if (!GlobalManager.ControllerBuild)
+        {
+            GetComponent<FPSController>().enabled = false;
+        }
     }
 
-    //private void UpdateController()
-    //{
-    //    if (controllerEnabled)
-    //    {
-    //        //update camera by controller here and add senecetivity
-    //        if (Input.anyKey)
-    //        {
-
-    //        }
-    //        //
-    //    }
-    //}
+    void Update()
+    {
+        UpdateMovement();
+    }
 
     private void UpdateMovement()
     {
-        switch(moveType)
+        switch (MoveType)
         {
-            case MOVEMENT_TYPE.STILL: break;
-            case MOVEMENT_TYPE.RAYCAST_MOVEMENT: break;
-            case MOVEMENT_TYPE.MOTION_MOVEMENT: break;
-            case MOVEMENT_TYPE.POINT_MOVEMENT:
-                if(targetObj != null)
+            case MovementType.STILL: break;
+            case MovementType.RAYCAST_MOVEMENT: break;
+            case MovementType.MOTION_MOVEMENT: break;
+            case MovementType.POINT_MOVEMENT:
+                if (targetObj != null)
                 {
                     currentTime += Time.deltaTime;
-                    if(currentTime >= POINT_LOOK_TIME)
+                    if (currentTime >= POINT_LOOK_TIME)
                     {
                         rigidBody.MovePosition(targetObj.transform.position);
                         currentTime = 0;
@@ -69,13 +64,13 @@ public class Player : MonoBehaviour {
                     }
                 }
                 break;
-            case MOVEMENT_TYPE.CONTROLLER_MOVEMENT: break;
+            case MovementType.CONTROLLER_MOVEMENT: break;
         }
     }
 
-    public void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition,Ray intersectionRay, bool isInteractive)
+    public void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)
     {
-        if(moveType == MOVEMENT_TYPE.POINT_MOVEMENT)
+        if (MoveType == MovementType.POINT_MOVEMENT)
         {
             targetObj = targetObject;
         }
@@ -88,26 +83,26 @@ public class Player : MonoBehaviour {
 
     public void OnPointerExit(GameObject targetObject)
     {
-        if (moveType == MOVEMENT_TYPE.POINT_MOVEMENT)
+        if (MoveType == MovementType.POINT_MOVEMENT)
         {
             targetObj = null;
         }
     }
 
-    public void SetMovement(MOVEMENT_TYPE type)
+    public void SetMovement(MovementType type)
     {
-        moveType = type;
+        MoveType = type;
     }
 
-    public void SetVrMode()
-    {
-        GvrViewer.Instance.VRModeEnabled = true;
-        controllerEnabled = false;
-    }
+    //public void SetVrMode()
+    //{
+    //    GvrViewer.Instance.VRModeEnabled = true;
+    //    controllerEnabled = false;
+    //}
 
-    public void SetControllerMode()
-    {
-        GvrViewer.Instance.VRModeEnabled = false;
-        controllerEnabled = true;
-    }
+    //public void SetControllerMode()
+    //{
+    //    GvrViewer.Instance.VRModeEnabled = false;
+    //    controllerEnabled = true;
+    //}
 }

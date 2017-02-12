@@ -23,7 +23,7 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
     {
         currentChild = 0;
         spawnTarget();
-        Player.SetMovement(Player.MOVEMENT_TYPE.STILL);
+        Player.SetMovement(Player.MovementType.STILL);
     }
 
     public virtual void StopChallenge()

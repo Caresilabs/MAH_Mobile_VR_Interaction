@@ -5,7 +5,6 @@ public class TargetRangeController : TargetChallenge {
 
     public override void StartChallenge()
     {
-        Player.SetControllerMode();
         base.StartChallenge();
     }
 
