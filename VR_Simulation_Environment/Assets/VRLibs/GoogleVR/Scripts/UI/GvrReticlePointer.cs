@@ -81,7 +81,7 @@ public class GvrReticlePointer : GvrBasePointer {
   /// The intersectionRay is the ray that was cast to determine the intersection.
   public override void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition,
      Ray intersectionRay, bool isInteractive) {
-        if (player != null && isInteractive)
+        if (player != null)
             player.OnPointerEnter(targetObject, intersectionPosition, intersectionRay, isInteractive);
     SetPointerTarget(intersectionPosition, isInteractive);
   }
@@ -94,7 +94,7 @@ public class GvrReticlePointer : GvrBasePointer {
   /// The intersectionRay is the ray that was cast to determine the intersection.
   public override void OnPointerHover(GameObject targetObject, Vector3 intersectionPosition,
       Ray intersectionRay, bool isInteractive) {
-        if (player != null && isInteractive)
+        if (player != null)
             player.OnPointerHover(targetObject, intersectionPosition, intersectionRay, isInteractive);
 
         SetPointerTarget(intersectionPosition, isInteractive);
@@ -131,6 +131,12 @@ public class GvrReticlePointer : GvrBasePointer {
     innerRadius = 2.0f * Mathf.Tan(min_inner_angle_radians);
     outerRadius = 2.0f * Mathf.Tan(max_inner_angle_radians);
   }
+
+    public void toggleDot(bool on)
+    {
+        Renderer render = gameObject.GetComponent<Renderer>();
+        render.enabled = on;
+    }
 
   private void CreateReticleVertices() {
     Mesh mesh = new Mesh();

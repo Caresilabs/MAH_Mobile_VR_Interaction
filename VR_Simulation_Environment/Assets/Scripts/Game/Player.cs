@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 
     public const float MOVE_SPEED = 3;
 
-
     public MovementType MoveType { get; private set; }
 
     private GameObject camera;
@@ -79,7 +78,8 @@ public class Player : MonoBehaviour
 
     public void OnPointerHover(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)
     {
-        print(intersectionPosition);
+        if (MoveType == MovementType.RAYCAST_MOVEMENT)
+            GetComponent<RayCastMovement>().OnPointerHover(targetObject, intersectionPosition, intersectionRay, isInteractive);
     }
 
     public void OnPointerExit(GameObject targetObject)
@@ -93,17 +93,11 @@ public class Player : MonoBehaviour
     public void SetMovement(MovementType type)
     {
         MoveType = type;
+        GetComponent<RayCastMovement>().enabled = (type == MovementType.RAYCAST_MOVEMENT);
     }
 
-    //public void SetVrMode()
-    //{
-    //    GvrViewer.Instance.VRModeEnabled = true;
-    //    controllerEnabled = false;
-    //}
-
-    //public void SetControllerMode()
-    //{
-    //    GvrViewer.Instance.VRModeEnabled = false;
-    //    controllerEnabled = true;
-    //}
+    public void ShowDot(bool on)
+    {
+        GetComponentInChildren<GvrReticlePointer>().toggleDot(on);
+    }
 }
