@@ -8,15 +8,12 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
     [SerializeField]
     protected Player    Player; 
 
-    public void StartChallenge()
+    public virtual void StartChallenge()
     {
         print("Start Challenge");
-        //Player.SetMovement(Player.MovementType.POINT_MOVEMENT); //change me later move to subclass
-        Player.SetMovement(Player.MovementType.RAYCAST_MOVEMENT);
-        Player.ShowDot(false);
     }
 
-    public void StopChallenge()
+    public virtual void StopChallenge()
     {
 
     }

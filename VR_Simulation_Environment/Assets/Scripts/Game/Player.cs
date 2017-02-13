@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
     public void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)
     {
-        if (MoveType == MovementType.POINT_MOVEMENT)
+        if (MoveType == MovementType.POINT_MOVEMENT && isInteractive)
         {
             targetObj = targetObject;
         }
