@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FPSController : MonoBehaviour
 {
@@ -16,13 +17,15 @@ public class FPSController : MonoBehaviour
 
     private Camera cam;
 
+    private int invertX = 1, invertY = 1;
+
     // Use this for initialization
     void Start()
     {
         this.Rigidbody = GetComponent<Rigidbody>();
         this.cam = GetComponentInChildren<Camera>();
         this.Player = GetComponent<Player>();
-        this.Sensitivity = 150;
+        this.Sensitivity = 110;
     }
 
     // Update is called once per frame
@@ -30,6 +33,28 @@ public class FPSController : MonoBehaviour
     {
         UpdateMovement();
         UpdateLook();
+        UpdateSensitivity();
+    }
+
+    private void UpdateSensitivity()
+    {
+        if (Input.GetButtonDown("SensitivityPlus"))
+        {
+            Sensitivity += 10;
+        }
+        else if (Input.GetButtonDown("SensitivityMinus"))
+        {
+            Sensitivity -= 10;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            invertX *= -1;
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            invertY *= -1;
+        }
     }
 
     private void UpdateMovement()
@@ -59,8 +84,8 @@ public class FPSController : MonoBehaviour
 
     private void UpdateLook()
     {
-        float yRot = Input.GetAxis("Mouse Y") * -Sensitivity * Time.deltaTime;
-        float xRot = Input.GetAxis("Mouse X") * Sensitivity * Time.deltaTime;
+        float yRot = Input.GetAxis("Mouse Y") * -Sensitivity * invertY * Time.deltaTime;
+        float xRot = Input.GetAxis("Mouse X") * Sensitivity * invertX * Time.deltaTime;
 
         xView += xRot;
         transform.Rotate(Vector3.up, xRot);

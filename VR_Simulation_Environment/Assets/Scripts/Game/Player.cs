@@ -5,7 +5,7 @@ using System;
 public class Player : MonoBehaviour
 {
 
-    public const float MOVE_SPEED = 3;
+    public const float MOVE_SPEED = 6;
 
     public MovementType MoveType { get; private set; }
 
