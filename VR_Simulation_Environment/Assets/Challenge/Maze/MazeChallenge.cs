@@ -11,8 +11,9 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
     public void StartChallenge()
     {
         print("Start Challenge");
-        //Player.SetMovement(Player.MovementType.POINT_MOVEMENT); //change me later move to subclass
-        Player.SetMovement(Player.MovementType.RAYCAST_MOVEMENT);
+        Player.SetMovement(Player.MovementType.POINT_MOVEMENT); //change me later move to subclass
+                                                                // Player.SetMovement(Player.MovementType.RAYCAST_MOVEMENT);
+        Player.SetMovement(Player.MovementType.CONTROLLER_MOVEMENT);
     }
 
     public void StopChallenge()
