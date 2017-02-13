@@ -261,7 +261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1090537506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,9 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b0c87de97930d44b0d283554aaf25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnBoxColliders: []
   Target: {fileID: 469503600}
-  Player: {fileID: 1418320932}
+  GameManager: {fileID: 0}
+  ScoreText: {fileID: 0}
 --- !u!4 &1090537507
 Transform:
   m_ObjectHideFlags: 0
@@ -414,12 +414,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1418320932 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012901927778, guid: 7facec65075f7a74b991e26ee3587fc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1375272938}
-  m_Script: {fileID: 11500000, guid: b04a48e9786e1ae44a0146a08256fec3, type: 3}
 --- !u!1 &1427688153
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1666892812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,9 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7deb7d684be62ec4b8527e7974238a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnBoxColliders: []
   Target: {fileID: 469503600}
-  Player: {fileID: 1418320932}
+  GameManager: {fileID: 0}
+  ScoreText: {fileID: 0}
 --- !u!4 &1666892813
 Transform:
   m_ObjectHideFlags: 0
