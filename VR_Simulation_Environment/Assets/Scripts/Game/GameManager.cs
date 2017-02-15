@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void Begin()
     {
-        this.challengeIndex = 2;
+        this.challengeIndex = 0;
         State = LevelState.PRACTICE;
 
         challenges[challengeIndex].SetActive(true);
