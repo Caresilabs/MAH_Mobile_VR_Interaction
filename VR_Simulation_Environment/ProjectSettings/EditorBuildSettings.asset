@@ -6,8 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Target Range 2.unity
-  - enabled: 0
-    path: Assets/GoogleVR/Demos/Scenes/GVRDemo.unity
-  - enabled: 0
-    path: Assets/VrTest.unity
+    path: Assets/Scenes/Target Range.unity
+  - enabled: 1
+    path: Assets/Scenes/Maze Challenge.unity

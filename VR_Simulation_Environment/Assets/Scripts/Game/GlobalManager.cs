@@ -9,9 +9,7 @@ public class GlobalManager : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         ControllerBuild = Application.platform != RuntimePlatform.Android;
-        ControllerBuild = false; // TODO DEBUG ONLY
-
-       
+        ControllerBuild = true; // TODO DEBUG ONLY
     }
 
     void Start()

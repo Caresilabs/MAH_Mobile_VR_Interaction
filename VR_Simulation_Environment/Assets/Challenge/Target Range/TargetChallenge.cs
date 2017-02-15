@@ -69,6 +69,8 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
                 ScoreText.text = "Hits: " + hits;
                 ReportData();
                 GameManager.StopTimer();
+
+                GameManager.NextPhase(); // TODO replace with button
             }
             else
             {
@@ -83,7 +85,7 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
             {
                 if (hits == 0)
                 {
-                    GameManager.StartTimer(false);
+                    GameManager.StartTimer();
                 }
                 ++hits;
 

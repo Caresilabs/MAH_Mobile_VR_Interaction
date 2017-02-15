@@ -65,16 +65,9 @@ public class GameManager : MonoBehaviour
         CurrentChallenge.StartChallenge();
     }
 
-    public void StartTimer(bool shownPrepareUI)
+    public void StartTimer()
     {
-        if (shownPrepareUI)
-        {
-
-        }
-        else
-        {
-            ChallengeState = UIState.RUNNING;
-        }
+        ChallengeState = UIState.RUNNING;
     }
 
     public void StopTimer()
@@ -82,7 +75,6 @@ public class GameManager : MonoBehaviour
         ChallengeState = UIState.END;
 
         Timer = 0;
-        NextPhase();
     }
 
     // Update is called once per frame
@@ -94,15 +86,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void NextPhase()
+    public void NextPhase()
     {
         if (State == LevelState.PRACTICE)
         {
-            CurrentChallenge.StopChallenge();
-            State = LevelState.COMPETITION;
-            ChallengeState = UIState.PREPARE;
+            // CurrentChallenge.StopChallenge();
+            // State = LevelState.COMPETITION;
+            //  ChallengeState = UIState.PREPARE;
 
+            // CurrentChallenge.StartChallenge();
+
+            CurrentChallenge.StopChallenge();
+            challenges[challengeIndex].SetActive(false);
+
+            ++challengeIndex;
+            if (challengeIndex >= challenges.Count)
+            {
+                State = LevelState.COMPETITION;
+                challengeIndex = 0;
+            }
+            
+            challenges[challengeIndex].SetActive(true);
+            CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
+            ChallengeState = UIState.PREPARE;
             CurrentChallenge.StartChallenge();
+            
         }
         else
         {
@@ -118,7 +126,6 @@ public class GameManager : MonoBehaviour
             {
                 challenges[challengeIndex].SetActive(true);
                 CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
-                State = LevelState.PRACTICE;
                 ChallengeState = UIState.PREPARE;
                 CurrentChallenge.StartChallenge();
             }
