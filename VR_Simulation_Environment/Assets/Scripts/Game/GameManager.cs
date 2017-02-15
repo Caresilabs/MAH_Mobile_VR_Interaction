@@ -51,17 +51,17 @@ public class GameManager : MonoBehaviour
         this.pointer = FindObjectOfType<GvrReticlePointer>();
 
         this.challenges = GlobalManager.ControllerBuild ? controllerChallenges : vrChallenges;
-        this.challengeIndex = 0;
 
         Begin();
     }
 
     private void Begin()
     {
+        this.challengeIndex = 2;
         State = LevelState.PRACTICE;
 
-        challenges[0].SetActive(true);
-        CurrentChallenge = challenges[0].GetComponent<IChallenge>();
+        challenges[challengeIndex].SetActive(true);
+        CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
         CurrentChallenge.StartChallenge();
     }
 

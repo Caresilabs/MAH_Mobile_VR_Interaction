@@ -54,32 +54,7 @@ public class Player : MonoBehaviour
             case MovementType.STILL: break;
             case MovementType.RAYCAST_MOVEMENT: break;
             case MovementType.MOTION_MOVEMENT:
-                float x = camera.transform.rotation.eulerAngles.x;
-                float upDown = ((x > 180) ? (x-360f) : x) / 45f; // -2 straight up, 2 straight down, 0 straight forward.
-
-                float z = camera.transform.rotation.eulerAngles.z;
-                float tilt = ((z > 180) ? -(z - 360f) : -z) / 90f; // 1 tilt left, -1 tilt right, 0 no tilt.
-
-                Vector3 targetVelocity = camera.transform.rotation * new Vector3(upDown, 0, tilt);
-
-                if (targetVelocity.magnitude >= 1)
-                {
-                    targetVelocity.Normalize();
-                }
-                targetVelocity = transform.TransformDirection(targetVelocity);
-
-                targetVelocity *= Player.MOVE_SPEED;
-
-                // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rigidBody.velocity;
-                Vector3 velocityChange = (targetVelocity - velocity);
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                velocityChange.y = 0;
-
-                rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
-
-                print(tilt);
+                UpdateTiltMovement();
                 break;
             case MovementType.POINT_MOVEMENT:
                 if (targetObj != null)
@@ -95,6 +70,42 @@ public class Player : MonoBehaviour
                 break;
             case MovementType.CONTROLLER_MOVEMENT: break;
         }
+    }
+
+    private void UpdateTiltMovement()
+    {
+        float x = camera.transform.rotation.eulerAngles.x;
+        float upDown = ((x > 180) ? (x - 360f) : x) / 45f; // -2 straight up, 2 straight down, 0 straight forward.
+
+        if (Math.Abs(x) < 15)
+            upDown = 0;
+
+        float z = camera.transform.rotation.eulerAngles.z;
+        float tilt = ((z > 180) ? (z - 360f) : z) / 90f; // 1 tilt left, -1 tilt right, 0 no tilt.
+
+        if (Math.Abs(z) < 15)
+            tilt = 0;
+
+        Vector3 targetVelocity = camera.transform.rotation * new Vector3(upDown, 0, tilt);
+
+        if (targetVelocity.magnitude >= 1)
+        {
+            targetVelocity.Normalize();
+        }
+        targetVelocity = transform.TransformDirection(targetVelocity);
+
+        targetVelocity *= Player.MOVE_SPEED;
+
+        // Apply a force that attempts to reach our target velocity
+        Vector3 velocity = rigidBody.velocity;
+        Vector3 velocityChange = (targetVelocity - velocity);
+        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+        velocityChange.y = 0;
+
+        rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
+
+        print(tilt);
     }
 
     public void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)
