@@ -1,2 +1,4 @@
-Base path: E:/Program/Unity3DGVR/Editor/Data
+Base path: D:/Programs/Unity_GVR/Editor/Data
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=1032 outsize=1318 ok=1
