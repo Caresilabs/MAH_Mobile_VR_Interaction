@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 
     private Rigidbody rigidBody;
 
+    [SerializeField]
+    private GameObject Hammer;
+
     //PointMove
     private GameObject targetObj;
     private float POINT_LOOK_TIME = 0.3f;
@@ -139,5 +142,10 @@ public class Player : MonoBehaviour
     public void ShowDot(bool on)
     {
         GetComponentInChildren<GvrReticlePointer>().toggleDot(on);
+    }
+
+    public void setHammer(bool hasHammer)
+    {
+        Hammer.SetActive(hasHammer);
     }
 }

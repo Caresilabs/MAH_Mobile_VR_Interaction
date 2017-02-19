@@ -8,19 +8,35 @@ public class SelectMenuScript : MonoBehaviour {
     [SerializeField]
     private GameObject OkButton;
 
+    [SerializeField]
+    private GameObject PickUpButton;
+
+    [SerializeField]
+    private Player player;
+
     private Button selectedButton;
 
     [SerializeField]
-    private GameObject canvas;
+    private GameObject Canvas;
 
     public void Enter(Button button)
     {
         if (button == OkButton.GetComponent<Button>())
         {
             print("REMOVE");
+            if (selectedButton == PickUpButton.GetComponent<Button>())
+            {
+                print("REMOVE");
+                player.setHammer(true);
+                Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                OkButton.SetActive(false);
+                Canvas.SetActive(false);
+            }
+            setColor(Color.white, selectedButton);
             selectedButton = null;
-            OkButton.SetActive(false);
-            canvas.SetActive(false); //WHY YOU NO WORKING!=?!=!=="#=#!=#194yh
         }
         else
         {
@@ -38,11 +54,17 @@ public class SelectMenuScript : MonoBehaviour {
 
     public void Show()
     {
-        canvas.gameObject.SetActive(true);
+        if (selectedButton == null)
+        {
+            print("Showing");
+            Canvas.gameObject.SetActive(true);
+            Quaternion rotation = Quaternion.LookRotation(transform.position - player.transform.position);
+            Canvas.transform.rotation = rotation;
+        }
     }
 	void Start () {
         OkButton.SetActive(false);
-        canvas.gameObject.SetActive(false);
+        Canvas.gameObject.SetActive(false);
     }
 	
 	void Update () {
