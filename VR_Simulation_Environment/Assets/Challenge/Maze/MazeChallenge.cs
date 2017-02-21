@@ -49,7 +49,14 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
 
         GameManager.Analytics.OnEvent("Goal", "MazeTime", GameManager.Timer);
 
+       // Invoke("StandStill", 3); TODO after end button is there
+
         GameManager.NextPhase(); // TODO replace with button
+    }
+
+    private void StandStill()
+    {
+        Player.SetMovement(Player.MovementType.STILL);
     }
 
    

@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     private void UpdateTiltMovement()
     {
         float x = camera.transform.rotation.eulerAngles.x;
-        float upDown = ((x > 180) ? (x - 360f) : x) / 45f; // -2 straight up, 2 straight down, 0 straight forward.
+        float upDown = ((x > 180) ? (x - 360f) : x) / 22.5f; // -4 straight up, 4 straight down, 0 straight forward.
 
         if (Math.Abs(x) < 15)
             upDown = 0;

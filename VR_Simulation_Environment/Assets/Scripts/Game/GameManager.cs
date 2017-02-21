@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
 
     private GvrReticlePointer pointer;
 
-    private int challengeIndex;
+    [SerializeField]
+    private int ChallengeIndex;
 
     // Use this for initialization
     void Awake()
@@ -57,11 +58,10 @@ public class GameManager : MonoBehaviour
 
     private void Begin()
     {
-        this.challengeIndex = 0;
         State = LevelState.PRACTICE;
 
-        challenges[challengeIndex].SetActive(true);
-        CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
+        challenges[ChallengeIndex].SetActive(true);
+        CurrentChallenge = challenges[ChallengeIndex].GetComponent<IChallenge>();
         CurrentChallenge.StartChallenge();
     }
 
@@ -97,17 +97,17 @@ public class GameManager : MonoBehaviour
             // CurrentChallenge.StartChallenge();
 
             CurrentChallenge.StopChallenge();
-            challenges[challengeIndex].SetActive(false);
+            challenges[ChallengeIndex].SetActive(false);
 
-            ++challengeIndex;
-            if (challengeIndex >= challenges.Count)
+            ++ChallengeIndex;
+            if (ChallengeIndex >= challenges.Count)
             {
                 State = LevelState.COMPETITION;
-                challengeIndex = 0;
+                ChallengeIndex = 0;
             }
             
-            challenges[challengeIndex].SetActive(true);
-            CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
+            challenges[ChallengeIndex].SetActive(true);
+            CurrentChallenge = challenges[ChallengeIndex].GetComponent<IChallenge>();
             ChallengeState = UIState.PREPARE;
             CurrentChallenge.StartChallenge();
             
@@ -115,17 +115,17 @@ public class GameManager : MonoBehaviour
         else
         {
             CurrentChallenge.StopChallenge();
-            challenges[challengeIndex].SetActive(false);
+            challenges[ChallengeIndex].SetActive(false);
 
-            ++challengeIndex;
-            if (challengeIndex >= challenges.Count)
+            ++ChallengeIndex;
+            if (ChallengeIndex >= challenges.Count)
             {
                 // next scene
             }
             else
             {
-                challenges[challengeIndex].SetActive(true);
-                CurrentChallenge = challenges[challengeIndex].GetComponent<IChallenge>();
+                challenges[ChallengeIndex].SetActive(true);
+                CurrentChallenge = challenges[ChallengeIndex].GetComponent<IChallenge>();
                 ChallengeState = UIState.PREPARE;
                 CurrentChallenge.StartChallenge();
             }
