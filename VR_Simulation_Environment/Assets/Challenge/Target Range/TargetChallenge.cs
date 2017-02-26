@@ -4,10 +4,12 @@ using Assets.Scripts;
 
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Assets.Scripts.UI;
+using UnityEngine.Events;
 
 public class TargetChallenge : MonoBehaviour, IChallenge {
 
-    private const float TARGET_TOTAL_TIME = 30;
+    private const float TARGET_TOTAL_TIME = 10;
 
     [SerializeField]
     private GameObject          Target;
@@ -24,7 +26,9 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
     private GameObject          currentTarget;
 
     private int                 hits;
+    private SelectMenuGeneral   readyMenu;
 
+    
     public virtual void StartChallenge()
     {
         this.Player = GameManager.Player;
@@ -33,11 +37,16 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
         hits = 0;
         spawnTarget();
         Player.SetMovement(Player.MovementType.STILL);
+
+        ScoreText.text = "Time starts after\nfirst hit!";
+
+        readyMenu = FindObjectOfType<SelectMenuGeneral>();
+        readyMenu.gameObject.SetActive(false);
     }
 
     public virtual void StopChallenge()
     {
-        Destroy(currentTarget);
+        
     }
 
     private void spawnTarget()
@@ -70,7 +79,10 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
                 ReportData();
                 GameManager.StopTimer();
 
-                GameManager.NextPhase(); // TODO replace with button
+                Destroy(currentTarget);
+
+                readyMenu.gameObject.SetActive(true);
+                readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
             }
             else
             {
@@ -95,6 +107,11 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
         }
 	   
 	}
+
+    public void OnUserReadyForNextClick()
+    {
+        GameManager.NextPhase(); // TODO replace with button
+    }
 
     private void ReportData()
     {

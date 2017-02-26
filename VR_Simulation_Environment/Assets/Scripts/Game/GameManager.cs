@@ -4,6 +4,7 @@ using UnityEngine.VR;
 using Assets.Scripts;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -121,6 +122,12 @@ public class GameManager : MonoBehaviour
             if (ChallengeIndex >= challenges.Count)
             {
                 // next scene
+                int id = SceneManager.GetActiveScene().buildIndex;
+                if (id < 3) {
+                    SceneManager.LoadScene(+1);
+                } else {
+                    
+                }
             }
             else
             {

@@ -67,8 +67,7 @@ public class SelectMenuScript : MonoBehaviour {
         Canvas.gameObject.SetActive(false);
     }
 	
-	void Update () {
-    }
+	
 
     void setColor(Color color, Button button)
     {

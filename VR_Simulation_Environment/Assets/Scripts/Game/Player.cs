@@ -113,9 +113,10 @@ public class Player : MonoBehaviour
 
     public void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)
     {
-        if (MoveType == MovementType.POINT_MOVEMENT && isInteractive)
+        if (MoveType == MovementType.POINT_MOVEMENT && isInteractive && targetObject.tag == "RaycastFloor")
         {
             targetObj = targetObject;
+            currentTime = 0;
         }
     }
 

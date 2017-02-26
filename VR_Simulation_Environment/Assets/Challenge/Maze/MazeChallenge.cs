@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts;
 using System;
+using Assets.Scripts.UI;
 
 public class MazeChallenge : MonoBehaviour, IChallenge {
 
@@ -9,6 +10,8 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
     protected GameManager GameManager;
 
     protected Player Player;
+
+    private static SelectMenuGeneral readyMenu;
 
     public virtual void StartChallenge()
     {
@@ -23,6 +26,11 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
         {
             checker.Reset(this);
         }
+
+        if (readyMenu != null)
+            readyMenu = FindObjectOfType<SelectMenuGeneral>();
+
+        readyMenu.gameObject.SetActive(false);
     }
 
     public virtual void StopChallenge()
@@ -49,9 +57,15 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
 
         GameManager.Analytics.OnEvent("Goal", "MazeTime", GameManager.Timer);
 
-       // Invoke("StandStill", 3); TODO after end button is there
+        Invoke("StandStill", 3);
 
-        GameManager.NextPhase(); // TODO replace with button
+        readyMenu.gameObject.SetActive(true);
+        readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
+    }
+
+    public void OnUserReadyForNextClick()
+    {
+        GameManager.NextPhase();
     }
 
     private void StandStill()
