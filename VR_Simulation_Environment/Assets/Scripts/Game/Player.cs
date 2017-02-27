@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     //Motion
     private float maxVelocityChange = 1.0f;
 
+    //Hammer
+    private bool hasHammer;
+
     public enum MovementType
     {
         STILL,
@@ -145,8 +148,12 @@ public class Player : MonoBehaviour
         GetComponentInChildren<GvrReticlePointer>().toggleDot(on);
     }
 
-    public void setHammer(bool hasHammer)
+    public void SetHammer(bool hasHammer)
     {
+        this.hasHammer = hasHammer;
         Hammer.SetActive(hasHammer);
     }
+
+
+    public bool HasHammer() { return hasHammer; }
 }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Maze Challenge.unity
+- path: Assets/Scenes/Basic Hammer Challenge.unity
   isLoaded: 1
   isActive: 1

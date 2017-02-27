@@ -18,7 +18,7 @@ public class CircleMenuScript : MonoBehaviour {
         print("Callled " + type);
         if (type == 1)
         {
-            player.setHammer(true);
+            player.SetHammer(true);
             Destroy(transform.parent.gameObject);
         }
         else
@@ -31,6 +31,8 @@ public class CircleMenuScript : MonoBehaviour {
 
     public void Show()
     {
+        if (player.HasHammer())
+            return;
         if (!showing)
         {
             Canvas.gameObject.SetActive(true);

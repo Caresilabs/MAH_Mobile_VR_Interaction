@@ -27,7 +27,7 @@ public class SelectMenuScript : MonoBehaviour {
             if (selectedButton == PickUpButton.GetComponent<Button>())
             {
                 print("REMOVE");
-                player.setHammer(true);
+                player.SetHammer(true);
                 Destroy(transform.parent.gameObject);
             }
             else
@@ -54,6 +54,8 @@ public class SelectMenuScript : MonoBehaviour {
 
     public void Show()
     {
+        if (player.HasHammer())
+            return;
         if (selectedButton == null)
         {
             print("Showing");
@@ -66,8 +68,7 @@ public class SelectMenuScript : MonoBehaviour {
         OkButton.SetActive(false);
         Canvas.gameObject.SetActive(false);
     }
-	
-	
+
 
     void setColor(Color color, Button button)
     {
