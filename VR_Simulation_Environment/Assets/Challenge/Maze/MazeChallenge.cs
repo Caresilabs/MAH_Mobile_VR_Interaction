@@ -27,7 +27,7 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
             checker.Reset(this);
         }
 
-        if (readyMenu != null)
+        if (readyMenu == null)
             readyMenu = FindObjectOfType<SelectMenuGeneral>();
 
         readyMenu.gameObject.SetActive(false);
@@ -53,9 +53,8 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
 
     public void OnGoalEnter()
     {
-        GameManager.StopTimer();
-
         GameManager.Analytics.OnEvent("Goal", "MazeTime", GameManager.Timer);
+        GameManager.StopTimer();
 
         Invoke("StandStill", 3);
 
