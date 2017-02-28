@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     //Hammer
     private bool hasHammer;
 
+    public GameObject currentCanvas;
+
     public enum MovementType
     {
         STILL,

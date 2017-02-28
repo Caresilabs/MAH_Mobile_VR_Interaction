@@ -2,8 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Assets.Challenge.Hammer;
+using System;
 
-public class SelectMenuScript : MonoBehaviour {
+public class SelectMenuScript : MonoBehaviour, IMenuCanvas
+{
 
     [SerializeField]
     private GameObject OkButton;
@@ -32,11 +35,9 @@ public class SelectMenuScript : MonoBehaviour {
             }
             else
             {
-                OkButton.SetActive(false);
                 Canvas.SetActive(false);
             }
-            setColor(Color.white, selectedButton);
-            selectedButton = null;
+            Exit();
         }
         else
         {
@@ -56,13 +57,15 @@ public class SelectMenuScript : MonoBehaviour {
     {
         if (player.HasHammer())
             return;
-        if (selectedButton == null)
-        {
-            print("Showing");
-            Canvas.gameObject.SetActive(true);
-            Quaternion rotation = Quaternion.LookRotation(transform.position - player.transform.position);
-            Canvas.transform.rotation = rotation;
-        }
+
+        if (player.currentCanvas != null && player.currentCanvas != Canvas)
+            player.currentCanvas.SetActive(false);
+        player.currentCanvas = Canvas;
+
+        print("Showing");
+        Canvas.gameObject.SetActive(true);
+        Quaternion rotation = Quaternion.LookRotation(transform.position - player.transform.position);
+        Canvas.transform.rotation = rotation;
     }
 	void Start () {
         OkButton.SetActive(false);
@@ -76,5 +79,14 @@ public class SelectMenuScript : MonoBehaviour {
         block.normalColor = color;
         block.highlightedColor = color;
         button.colors = block;
+    }
+
+    public void Exit()
+    {
+        OkButton.SetActive(false);
+        if (selectedButton != null)
+            setColor(Color.white, selectedButton);
+        selectedButton = null;
+        print("DISABLED");
     }
 }

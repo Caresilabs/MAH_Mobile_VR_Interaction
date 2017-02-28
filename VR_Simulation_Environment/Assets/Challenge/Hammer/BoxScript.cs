@@ -6,25 +6,31 @@ public class BoxScript : MonoBehaviour {
     [SerializeField]
     GameObject Top;
 
+    [SerializeField]
+    GameObject HammerInstance;
+
     Quaternion start;
 
     bool closing;
-	// Use this for initialization
+
 	void Start () {
         start = Top.transform.rotation * Quaternion.AngleAxis(90, new Vector3(0, 0, 1));
     }
 	
-	// Update is called once per frame
 	void Update () {
 	    if(closing)
         {
-            print("Closing");
-            Top.transform.rotation = Quaternion.Slerp(Top.transform.rotation, start, 0.01f);
+            Top.transform.rotation = Quaternion.Slerp(Top.transform.rotation, start, 0.015f);
+            //Limit me PLEAS
         }
 	}
 
-    void Close()
+    public void Close()
     {
-        closing = true;
+        if(!closing)
+        {
+            closing = true;
+            Instantiate(HammerInstance, Top.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        }
     }
 }
