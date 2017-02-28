@@ -56,8 +56,6 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
         GameManager.Analytics.OnEvent("Goal", "MazeTime", GameManager.Timer);
         GameManager.StopTimer();
 
-        Invoke("StandStill", 3);
-
         readyMenu.gameObject.SetActive(true);
         readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
     }
@@ -67,10 +65,11 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
         GameManager.NextPhase();
     }
 
-    private void StandStill()
-    {
-        Player.SetMovement(Player.MovementType.STILL);
-    }
+    //private void StandStill()
+    //{
+    //    if ( GameManager.CurrentChallenge == (IChallenge)this )
+    //        Player.SetMovement(Player.MovementType.STILL);
+    //}
 
    
 }

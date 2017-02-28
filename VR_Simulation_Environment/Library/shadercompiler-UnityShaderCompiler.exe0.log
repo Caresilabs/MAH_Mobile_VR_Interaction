@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Base path: E:/Programs/Unity MVR/Editor/Data
+=======
+Base path: D:/Programs/Unity3DVR/Editor/Data
+>>>>>>> 82cbdf346bb7294bb58bd7843c8ec16461c7f63a
 Cmd: getPlatforms
 Cmd: preprocess
   insize=1867 outsize=1127 ok=1
