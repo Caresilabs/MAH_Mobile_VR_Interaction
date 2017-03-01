@@ -22,7 +22,10 @@ namespace Assets.Scripts.UI
         private GameObject Canvas;
 
         private Button selectedButton;
+        private Button hoverButton;
         private Camera cam;
+
+        private float time;
 
         public void Start()
         {
@@ -33,27 +36,45 @@ namespace Assets.Scripts.UI
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
             Canvas.transform.rotation = rotation;
+
+            time += Time.deltaTime;
+            if (time > 0.9f && hoverButton == OkButton.GetComponent<Button>())
+            {
+                BaseEventData eventData = new BaseEventData(EventSystem.current);
+                eventData.selectedObject = selectedButton.gameObject;
+                Callback.Invoke(eventData);
+                Canvas.gameObject.SetActive(false);
+                OkButton.SetActive(false);
+
+                setColor(Color.white, selectedButton);
+                selectedButton = null;
+            }
         }
 
         public void Enter(Button button)
         {
+            time = 0;
+            hoverButton = button;
+
             if (button == OkButton.GetComponent<Button>())
             {
                 if (selectedButton == ActionButton.GetComponent<Button>())
                 {
-                    BaseEventData eventData = new BaseEventData(EventSystem.current);
-                    eventData.selectedObject = selectedButton.gameObject;
-                    Callback.Invoke(eventData);
-                    Canvas.gameObject.SetActive(false);
-                    OkButton.SetActive(false);
+                    //BaseEventData eventData = new BaseEventData(EventSystem.current);
+                    //eventData.selectedObject = selectedButton.gameObject;
+                    //Callback.Invoke(eventData);
+                    //Canvas.gameObject.SetActive(false);
+                    //OkButton.SetActive(false);
                 }
                 else
                 {
-                    OkButton.SetActive(false);
-                    Canvas.SetActive(false);
+                  //  OkButton.SetActive(false);
+                  //  Canvas.SetActive(false);
+
+                   // setColor(Color.white, selectedButton);
+                   // selectedButton = null;
                 }
-                setColor(Color.white, selectedButton);
-                selectedButton = null;
+               
             }
             else
             {
@@ -67,6 +88,7 @@ namespace Assets.Scripts.UI
 
         public void Exit(Button button)
         {
+            hoverButton = null;
         }
 
         public void Show()

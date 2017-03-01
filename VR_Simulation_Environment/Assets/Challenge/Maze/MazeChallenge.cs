@@ -30,6 +30,7 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
         if (readyMenu == null)
             readyMenu = FindObjectOfType<SelectMenuGeneral>();
 
+        readyMenu.Callback.RemoveAllListeners();
         readyMenu.gameObject.SetActive(false);
     }
 
@@ -56,13 +57,15 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
         GameManager.Analytics.OnEvent("Goal", "MazeTime", GameManager.Timer);
         GameManager.StopTimer();
 
+        Player.SetMovement(Player.MovementType.STILL);
+
         readyMenu.gameObject.SetActive(true);
         readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
     }
 
     public void OnUserReadyForNextClick()
     {
-        GameManager.NextPhase();
+           GameManager.NextPhase();
     }
 
     //private void StandStill()

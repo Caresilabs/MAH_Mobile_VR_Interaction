@@ -41,6 +41,7 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
         ScoreText.text = "Time starts after\nfirst hit!";
 
         readyMenu = FindObjectOfType<SelectMenuGeneral>();
+        readyMenu.Callback.RemoveAllListeners();
         readyMenu.gameObject.SetActive(false);
     }
 
@@ -110,7 +111,7 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
 
     public void OnUserReadyForNextClick()
     {
-        GameManager.NextPhase(); // TODO replace with button
+        GameManager.NextPhase();
     }
 
     private void ReportData()

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class RayCastMovement : MonoBehaviour {
 
@@ -61,8 +62,9 @@ public class RayCastMovement : MonoBehaviour {
         lastPos = intersectionPosition;
     }
 
-    // Update is called once per frame
-    void Update () {
-	
-	}
+    public void SetEnabled(bool e)
+    {
+        enabled = e;
+        pointer.SetActive(e);
+    }
 }

@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
     public void SetMovement(MovementType type)
     {
         MoveType = type;
-        GetComponent<RayCastMovement>().enabled = (type == MovementType.RAYCAST_MOVEMENT);
+        GetComponent<RayCastMovement>().SetEnabled(type == MovementType.RAYCAST_MOVEMENT);
     }
 
     public void ShowDot(bool on)
