@@ -65,6 +65,7 @@ public class RayCastMovement : MonoBehaviour {
     public void SetEnabled(bool e)
     {
         enabled = e;
-        pointer.SetActive(e);
+        if(pointer != null)
+            pointer.SetActive(e);
     }
 }

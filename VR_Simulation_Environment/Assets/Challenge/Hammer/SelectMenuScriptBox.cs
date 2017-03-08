@@ -63,7 +63,6 @@ public class SelectMenuScriptBox : MonoBehaviour, IMenuCanvas
             player.currentCanvas.SetActive(false);
         player.currentCanvas = Canvas;
 
-        print("Showing");
         Canvas.gameObject.SetActive(true);
         Quaternion rotation = Quaternion.LookRotation(transform.position - player.transform.position);
         Canvas.transform.rotation = rotation;
@@ -88,6 +87,5 @@ public class SelectMenuScriptBox : MonoBehaviour, IMenuCanvas
         if(selectedButton != null)
             setColor(Color.white, selectedButton);
         selectedButton = null;
-        print("DISABLED");
     }
 }
