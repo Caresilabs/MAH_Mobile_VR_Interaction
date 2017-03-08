@@ -18,17 +18,13 @@ public class BoxScript : MonoBehaviour {
     }
 	
 	void Update () {
-	    if(closing)
-        {
+	    if(closing){
             Top.transform.rotation = Quaternion.Slerp(Top.transform.rotation, start, 0.015f);
-            //Limit me PLEAS
         }
 	}
 
-    public void Close()
-    {
-        if(!closing)
-        {
+    public void Close(){
+        if(!closing){
             closing = true;
             Instantiate(HammerInstance, Top.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
