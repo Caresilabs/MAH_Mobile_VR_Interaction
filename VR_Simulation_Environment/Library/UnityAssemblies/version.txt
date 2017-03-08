@@ -1,16 +1,16 @@
-5.4.2f2-GVR13:2.8.2.0
+5.4.2f2-GVR13:2.3.0.0
 Android
-D:/Programs/Unity3DVR/Editor/Data/Managed/UnityEngine.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
-D:/Programs/Unity3DVR/Editor/Data/Managed/UnityEditor.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
-D:/Programs/Unity3DVR/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll
-D:/Programs/Unity3DVR/Editor/Data/Managed/UnityEditor.Graphs.dll
-D:/Programs/Unity3DVR/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-D:/Programs/Unity3DVR/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
+E:/Programs/Unity MVR/Editor/Data/Managed/UnityEngine.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+E:/Programs/Unity MVR/Editor/Data/Managed/UnityEditor.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
+E:/Programs/Unity MVR/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll
+E:/Programs/Unity MVR/Editor/Data/Managed/UnityEditor.Graphs.dll
+E:/Programs/Unity MVR/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+E:/Programs/Unity MVR/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
 C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll

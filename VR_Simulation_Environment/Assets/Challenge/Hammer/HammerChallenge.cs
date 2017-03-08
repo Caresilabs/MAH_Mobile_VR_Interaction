@@ -21,29 +21,32 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
     [SerializeField]
     private List<GameObject> spawnHammerPosition = new List<GameObject>();
 
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+
     protected Player Player;
 
     public void StartChallenge()
     {
-        print("WAW" + spawnBoxPosition.Count);
         Player = GameManager.Player;
         Player.SetMovement(Player.MovementType.STILL);
 
         foreach(GameObject g in spawnBoxPosition)
         {
-            Instantiate(boxObject, g.transform.position, g.transform.rotation);
-            print("SPAWN BOX");
+            spawnedObjects.Add((GameObject)Instantiate(boxObject, g.transform.position, g.transform.rotation));
         }
 
         foreach (GameObject g in spawnHammerPosition)
         {
-            Instantiate(hammerObject, g.transform.position, g.transform.rotation);
+            spawnedObjects.Add((GameObject)Instantiate(hammerObject, g.transform.position, g.transform.rotation));
         }
     }
 
     public void StopChallenge()
     {
-
+        foreach (GameObject g in spawnedObjects)
+        {
+            Destroy(g);
+        }
     }
 
 	void Update () {
