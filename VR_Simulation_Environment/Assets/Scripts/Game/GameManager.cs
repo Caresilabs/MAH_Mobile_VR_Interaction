@@ -91,12 +91,6 @@ public class GameManager : MonoBehaviour
     {
         if (State == LevelState.PRACTICE)
         {
-            // CurrentChallenge.StopChallenge();
-            // State = LevelState.COMPETITION;
-            //  ChallengeState = UIState.PREPARE;
-
-            // CurrentChallenge.StartChallenge();
-
             CurrentChallenge.StopChallenge();
             challenges[ChallengeIndex].SetActive(false);
 
@@ -124,9 +118,9 @@ public class GameManager : MonoBehaviour
                 // next scene
                 int id = SceneManager.GetActiveScene().buildIndex;
                 if (id < 3) {
-                    SceneManager.LoadScene(+1);
+                    SceneManager.LoadScene(id+1);
                 } else {
-                    
+                    print("end");
                 }
             }
             else

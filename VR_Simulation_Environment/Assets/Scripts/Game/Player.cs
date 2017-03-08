@@ -112,8 +112,7 @@ public class Player : MonoBehaviour
         velocityChange.y = 0;
 
         rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
-
-        print(tilt);
+        
     }
 
     public void OnPointerEnter(GameObject targetObject, Vector3 intersectionPosition, Ray intersectionRay, bool isInteractive)

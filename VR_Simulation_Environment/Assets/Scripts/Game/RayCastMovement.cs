@@ -8,7 +8,7 @@ public class RayCastMovement : MonoBehaviour {
     GameObject pointer;
 
     private float MAX_DIST = 12f;//6f;
-    private float STARE_TIME = 0.6f;//0.5f;
+    private float STARE_TIME = 0.5f;
     private float MAX_GROW_SIZE = 6f;
     private float MAX_MOVE_DIST = 0.06f;//0.05f;
 
@@ -23,13 +23,14 @@ public class RayCastMovement : MonoBehaviour {
             lastPos = intersectionPosition;
             return;
         } 
-        print(intersectionPosition);
+
         pointer.transform.position = intersectionPosition;
         Renderer render = pointer.GetComponent<Renderer>();
         if(targetObject.tag == "RaycastFloor")
         {
-            render.enabled = true;
-            if(Vector3.Distance(intersectionPosition, transform.position) <= MAX_DIST)
+            pointer.SetActive(true);
+            // render.enabled = true;
+            if (Vector3.Distance(intersectionPosition, transform.position) <= MAX_DIST)
             {
                 if(Vector3.Distance(intersectionPosition, lastPos) <= MAX_MOVE_DIST)
                 {
@@ -57,7 +58,8 @@ public class RayCastMovement : MonoBehaviour {
         }
         else
         {
-            render.enabled = false;
+            pointer.SetActive(false);
+            // render.enabled = false;
         }
         lastPos = intersectionPosition;
     }
@@ -65,7 +67,7 @@ public class RayCastMovement : MonoBehaviour {
     public void SetEnabled(bool e)
     {
         enabled = e;
-        if(pointer != null)
+        if (pointer != null)
             pointer.SetActive(e);
     }
 }

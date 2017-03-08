@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class MazeChallengeVRRaycast : MazeChallenge {
+﻿public class MazeChallengeVRRaycast : MazeChallenge {
 
     public override void StartChallenge()
     {

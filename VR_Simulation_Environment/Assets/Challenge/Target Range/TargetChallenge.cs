@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts;
-
-using System.Collections.Generic;
 using UnityEngine.UI;
 using Assets.Scripts.UI;
-using UnityEngine.Events;
 
 public class TargetChallenge : MonoBehaviour, IChallenge {
 
-    private const float TARGET_TOTAL_TIME = 10;
+    private const float TARGET_TOTAL_TIME = 60;
 
     [SerializeField]
     private GameObject          Target;
@@ -47,7 +43,6 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
 
     public virtual void StopChallenge()
     {
-        
     }
 
     private void spawnTarget()

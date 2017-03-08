@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 public class TargetScript : MonoBehaviour, IGvrGazeResponder
 {
@@ -39,7 +37,6 @@ public class TargetScript : MonoBehaviour, IGvrGazeResponder
     public void OnGazeEnter()
     {
         selected = true;
-        Console.WriteLine("START()");
     }
 
     public void OnGazeExit()
@@ -49,7 +46,5 @@ public class TargetScript : MonoBehaviour, IGvrGazeResponder
     }
 
     public void OnGazeTrigger()
-    {
-        Console.WriteLine("OnGazeTrigger()");
-    }
+    {}
 }

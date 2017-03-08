@@ -58,6 +58,7 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
         GameManager.StopTimer();
 
         Player.SetMovement(Player.MovementType.STILL);
+        Player.ShowDot(true);
 
         readyMenu.gameObject.SetActive(true);
         readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
@@ -68,11 +69,5 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
            GameManager.NextPhase();
     }
 
-    //private void StandStill()
-    //{
-    //    if ( GameManager.CurrentChallenge == (IChallenge)this )
-    //        Player.SetMovement(Player.MovementType.STILL);
-    //}
-
-   
+     
 }
