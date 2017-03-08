@@ -54,7 +54,7 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
 
     public void OnGoalEnter()
     {
-        GameManager.Analytics.OnEvent("Goal", "MazeTime", GameManager.Timer);
+        GameManager.Analytics.OnEvent("Goal", "MazeTimeMS", (int)(GameManager.Timer * 1000));
         GameManager.StopTimer();
 
         Player.SetMovement(Player.MovementType.STILL);
@@ -69,5 +69,4 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
            GameManager.NextPhase();
     }
 
-     
 }

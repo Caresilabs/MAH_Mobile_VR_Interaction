@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.IO;
 
 public class AnalyticsSampler : MonoBehaviour {
 
@@ -18,13 +20,23 @@ public class AnalyticsSampler : MonoBehaviour {
 	
 	//}
 
-    public void OnChallengeComplete(GameManager.LevelState state, float time)
+
+    public void OnEvent(string action, string label, int data)
     {
-        SmartAnalytics.SendTiming("name","cat", "lab", (int)(time * 1000));
+        string cat = game.CurrentChallenge.GetType().Name + "-" + game.State.ToString();
+        SaveToDisk(cat, action, label, data);
+        SmartAnalytics.SendEvent(label, data, action, cat);
     }
 
-    public void OnEvent(string action, string label, float data)
+    private void SaveToDisk(string cat, string action, string label, int data)
     {
-        SmartAnalytics.SendEvent(label, data, action, game.CurrentChallenge.GetType().Name + "-" + game.State.ToString());
+        using (FileStream stream = new FileStream(Application.persistentDataPath + "/analytics.simme", FileMode.Append, FileAccess.Write))
+        {
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                writer.WriteLine(string.Format("TOD: {4}, Category: {0}, Action: {1}, Label: {2}, Data: {3}"
+                    , cat, action, label, data, DateTime.Now));
+            }
+        }
     }
 }
