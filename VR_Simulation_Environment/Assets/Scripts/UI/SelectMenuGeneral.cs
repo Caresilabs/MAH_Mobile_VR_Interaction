@@ -48,6 +48,8 @@ namespace Assets.Scripts.UI
 
                 setColor(Color.white, selectedButton);
                 selectedButton = null;
+                time = 0;
+                hoverButton = null;
             }
         }
 
