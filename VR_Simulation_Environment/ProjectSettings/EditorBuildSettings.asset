@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maze Challenge.unity
   - enabled: 1
-    path: Assets/Scenes/Basic Hammer Challenge.unity
+    path: Assets/Scenes/Hammer Challenge.unity
