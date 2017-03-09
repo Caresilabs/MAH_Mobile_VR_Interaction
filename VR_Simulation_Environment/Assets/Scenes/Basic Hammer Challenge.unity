@@ -8185,7 +8185,7 @@ Prefab:
     - target: {fileID: 114000011329493454, guid: 7facec65075f7a74b991e26ee3587fc1,
         type: 2}
       propertyPath: vrChallenges.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011329493454, guid: 7facec65075f7a74b991e26ee3587fc1,
         type: 2}
@@ -8261,6 +8261,16 @@ Prefab:
     - target: {fileID: 4000014272190498, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 88.16801
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011329493454, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: vrChallenges.Array.data[1]
+      value: 
+      objectReference: {fileID: 482599867}
+    - target: {fileID: 114000011329493454, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: ChallengeIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}
