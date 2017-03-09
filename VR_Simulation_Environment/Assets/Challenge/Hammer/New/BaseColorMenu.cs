@@ -50,4 +50,18 @@ abstract public class BaseColorMenu : MonoBehaviour
         Canvas.transform.rotation = rotation;
 
     }
+
+    public abstract void SetColor(ColorType type);
+
+    protected Color ColorTypeToColor(ColorType type)
+    {
+        switch(type)
+        {
+            case ColorType.BLUE: return Color.blue;
+            case ColorType.GREEN: return Color.green;
+            case ColorType.RED: return Color.red;
+            case ColorType.YELLOW: return Color.yellow;
+        }
+        return Color.gray;
+    }
 }

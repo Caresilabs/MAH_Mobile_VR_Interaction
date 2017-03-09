@@ -4166,6 +4166,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 680617322}
+  - 114: {fileID: 680617325}
+  - 114: {fileID: 680617324}
+  - 65: {fileID: 680617323}
   m_Layer: 0
   m_Name: Box Parts
   m_TagString: Untagged
@@ -4192,7 +4195,70 @@ Transform:
   - {fileID: 519012257}
   - {fileID: 1233546290}
   m_Father: {fileID: 1923251964}
-  m_RootOrder: 1
+  m_RootOrder: 0
+--- !u!65 &680617323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680617321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4935306, y: 1.2161555, z: 1.4947877}
+  m_Center: {x: -0.17479077, y: -0.108077765, z: 0.041452408}
+--- !u!114 &680617324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680617321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 680617325}
+          m_MethodName: ShowCanvas
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &680617325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680617321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f839da09e0e7f964aa1bdf9fcdcecd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1613721259}
+  - {fileID: 1940676421}
+  - {fileID: 584828452}
+  - {fileID: 1939512737}
+  player: {fileID: 1492609866}
+  Canvas: {fileID: 1279508189}
+  boxColor: 0
+  Top: {fileID: 1233546289}
+  HammerInstance: {fileID: 1168650232}
 --- !u!1 &690610988
 GameObject:
   m_ObjectHideFlags: 0
@@ -7172,7 +7238,7 @@ RectTransform:
   - {fileID: 584828451}
   - {fileID: 1939512736}
   m_Father: {fileID: 1923251964}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.333, y: 0.471}
@@ -11495,7 +11561,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2110102704}
   - {fileID: 680617322}
   - {fileID: 1279508190}
   m_Father: {fileID: 482599869}
@@ -13581,104 +13646,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106212287}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2110102699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1000010655375232, guid: 67ec4dfedf1835348be755280745389c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2110102704}
-  - 65: {fileID: 2110102702}
-  - 114: {fileID: 2110102701}
-  - 114: {fileID: 2110102700}
-  m_Layer: 0
-  m_Name: ScriptHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2110102700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110102699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f839da09e0e7f964aa1bdf9fcdcecd8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 1613721259}
-  - {fileID: 1940676421}
-  - {fileID: 584828452}
-  - {fileID: 1939512737}
-  player: {fileID: 1492609866}
-  Canvas: {fileID: 1279508189}
-  boxColor: 0
-  Top: {fileID: 1233546289}
-  HammerInstance: {fileID: 1168650232}
---- !u!114 &2110102701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011772470274, guid: 67ec4dfedf1835348be755280745389c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110102699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2110102700}
-          m_MethodName: ShowCanvas
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 1
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
---- !u!65 &2110102702
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65000012414661080, guid: 67ec4dfedf1835348be755280745389c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110102699}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4935306, y: 1.2161555, z: 1.4947877}
-  m_Center: {x: -0.17479077, y: -0.108077765, z: 0.041452408}
---- !u!4 &2110102704
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4000012769874220, guid: 67ec4dfedf1835348be755280745389c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110102699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.446, y: -1.19, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1923251964}
-  m_RootOrder: 0
 --- !u!1 &2123907865
 GameObject:
   m_ObjectHideFlags: 0

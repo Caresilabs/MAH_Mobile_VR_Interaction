@@ -16,6 +16,15 @@ public class HammerMenu : BaseColorMenu {
         }
     }
 
+    public override void SetColor(ColorType type)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<Renderer>().material.color = ColorTypeToColor(type);
+            hammerColor = type;
+        }
+    }
+
     protected override bool ShouldShow() {
         return !player.HasHammer();
     }

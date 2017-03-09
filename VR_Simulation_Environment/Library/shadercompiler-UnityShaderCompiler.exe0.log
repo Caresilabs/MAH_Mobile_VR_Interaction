@@ -1,2 +1,6 @@
-Base path: D:/Programs/Unity3DVR/Editor/Data
+Base path: E:/Programs/Unity MVR/Editor/Data
 Cmd: getPlatforms
+Cmd: compileSnippet
+  api=4 type=0 insize=14189 outsize=1030 kw= pd=UNITY_NO_SCREENSPACE_SHADOWS UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF2 UNITY_HARDWARE_TIER3 ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=14189 outsize=2074 kw= pd=UNITY_NO_SCREENSPACE_SHADOWS UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF2 UNITY_HARDWARE_TIER3 ok=1

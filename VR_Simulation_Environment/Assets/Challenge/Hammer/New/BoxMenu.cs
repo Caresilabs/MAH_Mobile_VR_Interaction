@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class BoxMenu : BaseColorMenu {
+public class BoxMenu : BaseColorMenu
+{
 
     [SerializeField]
     private ColorType boxColor;
@@ -17,8 +18,10 @@ public class BoxMenu : BaseColorMenu {
 
     bool closing;
 
-    protected override void ColorPressed(ColorType color) {
-        if (boxColor == color) {
+    protected override void ColorPressed(ColorType color)
+    {
+        if (boxColor == color)
+        {
             player.SetHammer(false);
             GetComponent<Collider>().enabled = false;
             Close();
@@ -26,25 +29,40 @@ public class BoxMenu : BaseColorMenu {
         HideCanvas();
     }
 
-    protected override bool ShouldShow() {
-        return player.HasHammer();
+    protected override bool ShouldShow()
+    {
+        return player.HasHammer() && !closing;
     }
 
-    new void Start() {
+    new void Start()
+    {
         base.Start();
         start = Top.transform.rotation * Quaternion.AngleAxis(90, new Vector3(0, 0, 1));
     }
 
-    void Update() {
-        if (closing) {
+    void Update()
+    {
+        if (closing)
+        {
             Top.transform.rotation = Quaternion.Slerp(Top.transform.rotation, start, 0.015f);
         }
     }
 
-    public void Close() {
-        if (!closing) {
+    public void Close()
+    {
+        if (!closing)
+        {
             closing = true;
             Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        }
+    }
+
+    public override void SetColor(ColorType type)
+    {
+        for (int i = 0; i < transform.childCount - 1; i++)
+        {
+            transform.GetChild(i).GetComponent<Renderer>().material.color = ColorTypeToColor(type);
+            boxColor = type;
         }
     }
 }
