@@ -34,7 +34,7 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
         foreach(GameObject g in spawnBoxPosition)
         {
             GameObject go = (GameObject)Instantiate(boxObject, g.transform.position, g.transform.rotation);
-            go.GetComponentInChildren<BoxMenu>().SetColor(GetColor(color));
+            go.GetComponentInChildren<BaseColorMenu>().SetColor(GetColor(color));
             spawnedObjects.Add(go);
             color++;
         }
@@ -43,7 +43,7 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
         foreach (GameObject g in spawnHammerPosition)
         {
             GameObject go = (GameObject)Instantiate(hammerObject, g.transform.position, g.transform.rotation);
-            go.GetComponentInChildren<HammerMenu>().SetColor(GetColor(color));
+            go.GetComponentInChildren<BaseColorMenu>().SetColor(GetColor(color));
             spawnedObjects.Add(go);
             color++;
         }

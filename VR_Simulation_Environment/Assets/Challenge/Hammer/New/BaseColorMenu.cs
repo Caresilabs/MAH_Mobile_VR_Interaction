@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using Assets.Challenge.Hammer;
 using System;
 
 abstract public class BaseColorMenu : MonoBehaviour
@@ -22,6 +21,8 @@ abstract public class BaseColorMenu : MonoBehaviour
 
     protected void Start()
     {
+        if (Canvas == null)
+            return;
         Canvas.SetActive(false);
         foreach(BaseColorObject button in buttons) {
             button.callBackEvent.AddListener(ColorPressed);
