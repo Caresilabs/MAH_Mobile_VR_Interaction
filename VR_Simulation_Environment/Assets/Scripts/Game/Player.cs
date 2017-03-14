@@ -70,7 +70,13 @@ public class Player : MonoBehaviour
                     currentTime += Time.deltaTime;
                     if (currentTime >= POINT_LOOK_TIME)
                     {
-                        rigidBody.MovePosition(targetObj.transform.position);
+                        rigidBody.MovePosition(Vector3.MoveTowards(rigidBody.position, targetObj.transform.position, .08f));
+                        //currentTime = 0;
+                        //targetObj = null;
+                    }
+
+                    if (Vector3.Distance(rigidBody.position, targetObj.transform.position) < 0.5f)
+                    {
                         currentTime = 0;
                         targetObj = null;
                     }
@@ -119,8 +125,9 @@ public class Player : MonoBehaviour
     {
         if (MoveType == MovementType.POINT_MOVEMENT && isInteractive && targetObject.tag == "RaycastFloor")
         {
-            targetObj = targetObject;
-            currentTime = 0;
+           // if (targetObj == null)
+           //     targetObj = targetObject;
+            //currentTime = 0;
         }
     }
 
@@ -128,13 +135,20 @@ public class Player : MonoBehaviour
     {
         if (MoveType == MovementType.RAYCAST_MOVEMENT)
             GetComponent<RayCastMovement>().OnPointerHover(targetObject, intersectionPosition, intersectionRay, isInteractive);
+
+        if (MoveType == MovementType.POINT_MOVEMENT && isInteractive && targetObject.tag == "RaycastFloor")
+        {
+            if (targetObj == null)
+                targetObj = targetObject;
+        }
     }
 
     public void OnPointerExit(GameObject targetObject)
     {
         if (MoveType == MovementType.POINT_MOVEMENT)
         {
-            targetObj = null;
+            if (currentTime < POINT_LOOK_TIME)
+                targetObj = null;
         }
     }
 

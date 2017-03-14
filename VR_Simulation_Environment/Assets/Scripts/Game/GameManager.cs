@@ -85,6 +85,21 @@ public class GameManager : MonoBehaviour
         {
             Timer += Time.deltaTime;
         }
+
+        UpdateSkipChallenge();
+    }
+
+    float t0 = 0f;
+    private void UpdateSkipChallenge()
+    {
+        if (Input.GetMouseButtonDown(0))
+            t0 = Time.time;
+
+        if (Input.GetMouseButtonUp(0) && (Time.time - t0) > 0.9f)
+        {
+            StopTimer();
+            NextPhase();
+        }
     }
 
     public void NextPhase()

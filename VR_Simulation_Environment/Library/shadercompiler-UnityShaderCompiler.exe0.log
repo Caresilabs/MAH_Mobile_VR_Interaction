@@ -1,32 +1,30 @@
-Base path: D:/Programs/Unity_GVR/Editor/Data
+Base path: D:/Programs/Unity3DVR/Editor/Data
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=1796 outsize=1090 ok=1
+  insize=1867 outsize=1127 ok=1
 Cmd: preprocess
-  insize=1901 outsize=1088 ok=1
+  insize=1978 outsize=1128 ok=1
 Cmd: preprocess
-  insize=1032 outsize=1318 ok=1
+  insize=1911 outsize=981 ok=1
 Cmd: preprocess
-  insize=1838 outsize=949 ok=1
+  insize=3188 outsize=1805 ok=1
 Cmd: preprocess
-  insize=3072 outsize=1745 ok=1
+  insize=1248 outsize=1248 ok=1
 Cmd: preprocess
-  insize=1203 outsize=1203 ok=1
+  insize=1679 outsize=1008 ok=1
 Cmd: preprocess
-  insize=1613 outsize=975 ok=1
+  insize=1608 outsize=922 ok=1
 Cmd: preprocess
-  insize=1549 outsize=895 ok=1
+  insize=2026 outsize=1117 ok=1
 Cmd: preprocess
-  insize=1963 outsize=1085 ok=1
+  insize=2080 outsize=1286 ok=1
 Cmd: preprocess
-  insize=2009 outsize=1250 ok=1
+  insize=1815 outsize=931 ok=1
 Cmd: preprocess
-  insize=1750 outsize=903 ok=1
+  insize=864 outsize=861 ok=1
 Cmd: preprocess
-  insize=839 outsize=836 ok=1
+  insize=1213 outsize=1213 ok=1
 Cmd: preprocess
-  insize=1181 outsize=1181 ok=1
+  insize=3369 outsize=1430 ok=1
 Cmd: preprocess
-  insize=3276 outsize=1390 ok=1
-Cmd: preprocess
-  insize=2076 outsize=1087 ok=1
+  insize=2149 outsize=1122 ok=1

@@ -66,7 +66,7 @@ public class MazeChallenge : MonoBehaviour, IChallenge {
 
     public void OnUserReadyForNextClick()
     {
-           GameManager.NextPhase();
+        GameManager.NextPhase();
     }
 
 }
