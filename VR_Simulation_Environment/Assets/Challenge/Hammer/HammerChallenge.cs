@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts;
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.UI;
 
 public class HammerChallenge : MonoBehaviour, IChallenge {
 
@@ -23,7 +24,11 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
 
     private List<GameObject> spawnedObjects = new List<GameObject>();
 
+    private static SelectMenuGeneral readyMenu;
+
     protected Player Player;
+
+    private bool started;
 
     public void StartChallenge()
     {
@@ -47,6 +52,31 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
             spawnedObjects.Add(go);
             color++;
         }
+
+        if (readyMenu == null)
+            readyMenu = FindObjectOfType<SelectMenuGeneral>();
+
+        readyMenu.Callback.RemoveAllListeners();
+        readyMenu.gameObject.SetActive(false);
+    }
+
+    public void OnHammerStart() {
+        if (!started) {
+            GameManager.StartTimer();
+            started = true;
+        }
+    }
+
+    public void OnHammerComplete() {
+        GameManager.Analytics.OnEvent("Goal", "HammerTimeMS", (int)(GameManager.Timer * 1000));
+        GameManager.StopTimer();
+
+        readyMenu.gameObject.SetActive(true);
+        readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
+    }
+
+    void OnUserReadyForNextClick() {
+        GameManager.NextPhase();
     }
 
     private BaseColorMenu.ColorType GetColor(int i)
