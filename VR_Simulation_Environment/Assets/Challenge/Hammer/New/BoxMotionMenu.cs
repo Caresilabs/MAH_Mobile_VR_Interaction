@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.Challenge.Hammer.New;
 
-public class BoxMotionMenu : BaseColorMenu
-{
+public class BoxMotionMenu : BaseColorMenu, IBoxClosed {
 
     [SerializeField]
     private ColorType boxColor;
@@ -76,5 +76,9 @@ public class BoxMotionMenu : BaseColorMenu
 
     public override void SetColor(ColorType type)
     {
+    }
+
+    public bool IsBoxClosed() {
+        return closing;
     }
 }

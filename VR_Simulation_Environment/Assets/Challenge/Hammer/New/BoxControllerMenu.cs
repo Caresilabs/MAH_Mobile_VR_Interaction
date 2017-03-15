@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.Challenge.Hammer.New;
 
-public class BoxControllerMenu : BaseColorMenu
-{
+public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
 
     [SerializeField]
     private ColorType boxColor;
@@ -86,5 +86,9 @@ public class BoxControllerMenu : BaseColorMenu
         for (int i = 0; i < transform.childCount - 1; i++) {
             transform.GetChild(i).GetComponent<Renderer>().material.color = ColorTypeToColor(type);
         }
+    }
+
+    public bool IsBoxClosed() {
+        return closing;
     }
 }

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.Challenge.Hammer.New;
 
-public class BoxMenu : BaseColorMenu
-{
+public class BoxMenu : BaseColorMenu, IBoxClosed {
 
     [SerializeField]
     private ColorType boxColor;
@@ -53,7 +53,8 @@ public class BoxMenu : BaseColorMenu
         if (!closing)
         {
             closing = true;
-            Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            go.transform.SetParent(gameObject.transform);
         }
     }
 
@@ -64,5 +65,9 @@ public class BoxMenu : BaseColorMenu
             transform.GetChild(i).GetComponent<Renderer>().material.color = ColorTypeToColor(type);
             boxColor = type;
         }
+    }
+
+    public bool IsBoxClosed() {
+        return closing;
     }
 }

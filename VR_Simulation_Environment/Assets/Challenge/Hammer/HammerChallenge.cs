@@ -4,6 +4,7 @@ using Assets.Scripts;
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.UI;
+using Assets.Challenge.Hammer.New;
 
 public class HammerChallenge : MonoBehaviour, IChallenge {
 
@@ -29,6 +30,7 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
     protected Player Player;
 
     private bool started;
+    private bool stoped;
 
     public void StartChallenge()
     {
@@ -64,15 +66,21 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
         if (!started) {
             GameManager.StartTimer();
             started = true;
+            print("TIMER START");
         }
     }
 
     public void OnHammerComplete() {
-        GameManager.Analytics.OnEvent("Goal", "HammerTimeMS", (int)(GameManager.Timer * 1000));
-        GameManager.StopTimer();
+        if (!stoped) {
+            stoped = true;
 
-        readyMenu.gameObject.SetActive(true);
-        readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
+            GameManager.Analytics.OnEvent("Goal", "HammerTimeMS", (int)(GameManager.Timer * 1000));
+            GameManager.StopTimer();
+            print("TIMER STOPED");
+
+            readyMenu.gameObject.SetActive(true);
+            readyMenu.Callback.AddListener(delegate { OnUserReadyForNextClick(); });
+        }
     }
 
     void OnUserReadyForNextClick() {
@@ -101,6 +109,19 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
     }
 
 	void Update () {
-	
+        int closed = 0;
+	    foreach(GameObject go in spawnedObjects) {
+            if (!started && go == null)
+                OnHammerStart();
+            if(go != null) {
+                IBoxClosed ibc = go.GetComponentInChildren<IBoxClosed>();
+                if(ibc != null) {
+                    closed += ibc.IsBoxClosed() ? 1 : 0;
+                }
+            }
+        }
+        if(closed == 5) {
+            OnHammerComplete();
+        }
 	}
 }
