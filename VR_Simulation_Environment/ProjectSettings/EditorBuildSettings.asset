@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Maze Challenge.unity
   - enabled: 1
     path: Assets/Scenes/Hammer Challenge.unity
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
