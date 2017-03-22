@@ -34,7 +34,7 @@ public class HammerMotionMenu : BaseColorMenu {
     }
 
     public void Update() {
-        if (hover) {
+        if (hover && !player.HasHammer()) {
             float z = camera.transform.rotation.eulerAngles.z;
             float tilt = ((z > 180) ? (z - 360f) : z) / 90f;
             if(startTilt + tilt >= startTilt + TILT_AMOUNT) {

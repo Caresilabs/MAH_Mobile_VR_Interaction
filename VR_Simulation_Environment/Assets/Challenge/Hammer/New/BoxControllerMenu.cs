@@ -76,7 +76,8 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
             HideCanvas();
             player.SetHammer(false);
             closing = true;
-            Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            go.transform.SetParent(gameObject.transform);
         }
     }
 

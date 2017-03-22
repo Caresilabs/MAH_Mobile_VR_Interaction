@@ -25,7 +25,16 @@ public class SelectObjectScript : BaseColorObject {
 
     public void Select() {
         selectButton.SetActive(false);
+        if (current != null) {
+            current.fillAmount = 0;
+        }
         current = null;
         ButtonPressed();
+    }
+
+    void OnDisable() {
+        if (current != null) {
+            current.fillAmount = 0;
+        }
     }
 }

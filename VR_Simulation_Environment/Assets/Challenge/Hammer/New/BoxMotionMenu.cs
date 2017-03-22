@@ -38,7 +38,7 @@ public class BoxMotionMenu : BaseColorMenu, IBoxClosed {
     }
 
     public void Update() {
-        if (hover && !closing) {
+        if (hover && !closing && player.HasHammer()) {
             float z = camera.transform.rotation.eulerAngles.z;
             float tilt = ((z > 180) ? (z - 360f) : z) / 90f;
             if (startTilt + tilt <= startTilt + TILT_AMOUNT) {
@@ -70,7 +70,8 @@ public class BoxMotionMenu : BaseColorMenu, IBoxClosed {
             HideCanvas();
             player.SetHammer(false);
             closing = true;
-            Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(HammerInstance, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            go.transform.SetParent(gameObject.transform);
         }
     }
 
