@@ -40,11 +40,11 @@ public class FPSController : MonoBehaviour
     {
         if (Input.GetButtonDown("SensitivityPlus"))
         {
-            Sensitivity += 10;
+            Sensitivity = Mathf.Clamp(Sensitivity + 10, 1, 9999);
         }
         else if (Input.GetButtonDown("SensitivityMinus"))
         {
-            Sensitivity -= 10;
+            Sensitivity = Mathf.Clamp(Sensitivity - 10, 1, 9999);
         }
 
         if (Input.GetKeyDown(KeyCode.I))

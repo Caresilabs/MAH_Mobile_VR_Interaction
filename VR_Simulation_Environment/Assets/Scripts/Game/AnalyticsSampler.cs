@@ -23,7 +23,7 @@ public class AnalyticsSampler : MonoBehaviour {
 
     public void OnEvent(string action, string label, int data)
     {
-        string cat = game.CurrentChallenge.GetType().Name + "-" + game.State.ToString();
+        string cat = game.GetCurrentGameObjectChallenge().name + "-" + game.State.ToString();
         SaveToDisk(cat, action, label, data);
         SmartAnalytics.SendEvent(label, data, action, cat);
     }

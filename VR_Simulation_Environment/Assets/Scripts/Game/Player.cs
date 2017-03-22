@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private GameObject Hammer;
 
     //PointMove
-    private GameObject targetObj;
+    private GameObject targetObj, queuedTargetObj;
     private float POINT_LOOK_TIME = 0.3f;
 
     private float currentTime;
@@ -65,15 +65,20 @@ public class Player : MonoBehaviour
                 UpdateTiltMovement();
                 break;
             case MovementType.POINT_MOVEMENT:
-                if (targetObj != null)
+                if (queuedTargetObj != null)
                 {
                     currentTime += Time.deltaTime;
                     if (currentTime >= POINT_LOOK_TIME)
                     {
-                        rigidBody.MovePosition(Vector3.MoveTowards(rigidBody.position, targetObj.transform.position, .08f));
-                        //currentTime = 0;
-                        //targetObj = null;
+                        targetObj = queuedTargetObj;
+                        queuedTargetObj = null;
+                        currentTime = 0;
                     }
+                }
+
+                if (targetObj != null)
+                {
+                    rigidBody.MovePosition(Vector3.MoveTowards(rigidBody.position, targetObj.transform.position, .08f));
 
                     if (Vector3.Distance(rigidBody.position, targetObj.transform.position) < 0.5f)
                     {
@@ -125,9 +130,8 @@ public class Player : MonoBehaviour
     {
         if (MoveType == MovementType.POINT_MOVEMENT && isInteractive && targetObject.tag == "RaycastFloor")
         {
-           // if (targetObj == null)
-           //     targetObj = targetObject;
-            //currentTime = 0;
+            currentTime = 0;
+            queuedTargetObj = targetObject;
         }
     }
 
@@ -138,8 +142,8 @@ public class Player : MonoBehaviour
 
         if (MoveType == MovementType.POINT_MOVEMENT && isInteractive && targetObject.tag == "RaycastFloor")
         {
-            if (targetObj == null)
-                targetObj = targetObject;
+            //if (targetObj == null)
+             //   targetObj = targetObject;
         }
     }
 
@@ -147,8 +151,7 @@ public class Player : MonoBehaviour
     {
         if (MoveType == MovementType.POINT_MOVEMENT)
         {
-            if (currentTime < POINT_LOOK_TIME)
-                targetObj = null;
+            queuedTargetObj = null;
         }
     }
 
@@ -156,6 +159,8 @@ public class Player : MonoBehaviour
     {
         MoveType = type;
         GetComponent<RayCastMovement>().SetEnabled(type == MovementType.RAYCAST_MOVEMENT);
+        targetObj = null;
+        queuedTargetObj = null;
     }
 
     public void ShowDot(bool on)
