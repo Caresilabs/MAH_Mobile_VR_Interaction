@@ -723,7 +723,7 @@ GameObject:
   - 4: {fileID: 249700188}
   - 114: {fileID: 249700187}
   m_Layer: 0
-  m_Name: MazeChallengeMotion
+  m_Name: MazeChallengeVRMotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1146,7 +1146,7 @@ RectTransform:
   m_RootOrder: 11
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12.99, y: 2.3}
+  m_AnchoredPosition: {x: 12.99, y: 2.66}
   m_SizeDelta: {x: 250, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &363786229
@@ -1441,7 +1441,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.85, y: 1, z: 17.88}
-  m_Center: {x: 0, y: 0, z: -8.5}
+  m_Center: {x: 0, y: 0, z: -9.46}
 --- !u!114 &376072213
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -147,4 +147,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public GameObject GetCurrentGameObjectChallenge()
+    {
+        return challenges[ChallengeIndex];
+    }
 }

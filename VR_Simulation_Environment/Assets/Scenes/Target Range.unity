@@ -759,7 +759,7 @@ GameObject:
   - 4: {fileID: 1090537507}
   - 114: {fileID: 1090537506}
   m_Layer: 0
-  m_Name: Target Challenge Controller
+  m_Name: TargetChallengeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1093,7 +1093,7 @@ GameObject:
   - 4: {fileID: 1666892813}
   - 114: {fileID: 1666892812}
   m_Layer: 0
-  m_Name: Target Challenge VR
+  m_Name: TargetChallengeVR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

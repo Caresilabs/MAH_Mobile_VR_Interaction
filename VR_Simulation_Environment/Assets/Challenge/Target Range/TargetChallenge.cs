@@ -86,7 +86,7 @@ public class TargetChallenge : MonoBehaviour, IChallenge {
             }
         } 
 
-        if (currentTarget != null)
+        if (currentTarget != null && GameManager.ChallengeState != GameManager.UIState.END)
         {
             TargetScript ts = currentTarget.GetComponent<TargetScript>();
             if (ts.Dead)
