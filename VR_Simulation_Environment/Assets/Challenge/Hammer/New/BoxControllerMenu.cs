@@ -19,6 +19,9 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
 
     bool closing;
 
+    float timer;
+    float DELAY = 0.8f;
+
     protected override void ColorPressed(ColorType color)
     {
     }
@@ -27,12 +30,14 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
         hover = enter;
         if (enter) {
             ShowCanvas();
+            timer = 0.8f;
         } else {
             HideCanvas();
         }
     }
 
     public void Update() {
+        timer += Time.deltaTime;
         if (hover && !closing && player.HasHammer()) {
             if (hover) {
                 if (Input.GetButtonDown("Fire1")) { //A - GREEN
@@ -53,8 +58,12 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
     }
 
     public void Check(ColorType type) {
-        if (boxColor == type) {
-            Close();
+        if (timer > DELAY) {
+            if (boxColor == type) {
+                Close();
+            } else {
+                timer = 0;
+            }
         }
     }
 
