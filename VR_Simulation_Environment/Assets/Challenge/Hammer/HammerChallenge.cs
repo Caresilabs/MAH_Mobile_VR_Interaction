@@ -30,7 +30,7 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
     protected Player Player;
 
     private bool started;
-    private bool stoped;
+    private bool isStopped;
 
     public void StartChallenge()
     {
@@ -60,6 +60,8 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
 
         readyMenu.Callback.RemoveAllListeners();
         readyMenu.gameObject.SetActive(false);
+
+        isStopped = false;
     }
 
     public void OnHammerStart() {
@@ -71,8 +73,8 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
     }
 
     public void OnHammerComplete() {
-        if (!stoped) {
-            stoped = true;
+        if (!isStopped) {
+            isStopped = true;
 
             GameManager.Analytics.OnEvent("Goal", "HammerTimeMS", (int)(GameManager.Timer * 1000));
             GameManager.StopTimer();
