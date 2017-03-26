@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using Assets.Challenge.Hammer.New;
+using UnityEngine.UI;
 
 public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
 
@@ -13,6 +14,9 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
 
     [SerializeField]
     GameObject HammerInstance;
+
+    [SerializeField]
+    Image cross;
 
     Quaternion start;
     bool hover;
@@ -31,6 +35,7 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
         if (enter) {
             ShowCanvas();
             timer = 0.8f;
+            cross.enabled = false;
         } else {
             HideCanvas();
         }
@@ -38,17 +43,17 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
 
     public void Update() {
         timer += Time.deltaTime;
+        if (timer > DELAY)
+            cross.enabled = false;
         if (hover && !closing && player.HasHammer()) {
-            if (hover) {
-                if (Input.GetButtonDown("Fire1")) { //A - GREEN
-                    Check(ColorType.GREEN);
-                } else if (Input.GetButtonDown("Fire2")) { //B - RED
-                    Check(ColorType.RED);
-                } else if (Input.GetButtonDown("Fire3")) { //X - BLUE
-                    Check(ColorType.BLUE);
-                } else if (Input.GetButtonDown("Jump")) { //Y - YELLOW
-                    Check(ColorType.YELLOW);
-                }
+            if (Input.GetButtonDown("Fire1")) { //A - GREEN
+                Check(ColorType.GREEN);
+            } else if (Input.GetButtonDown("Fire2")) { //B - RED
+                Check(ColorType.RED);
+            } else if (Input.GetButtonDown("Fire3")) { //X - BLUE
+                Check(ColorType.BLUE);
+            } else if (Input.GetButtonDown("Jump")) { //Y - YELLOW
+                Check(ColorType.YELLOW);
             }
         }
 
@@ -63,6 +68,7 @@ public class BoxControllerMenu : BaseColorMenu, IBoxClosed {
                 Close();
             } else {
                 timer = 0;
+                cross.enabled = true;
             }
         }
     }
