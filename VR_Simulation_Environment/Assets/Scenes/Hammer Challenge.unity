@@ -772,7 +772,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
   m_TargetDisplay: 0
 --- !u!1 &104525971
 GameObject:
@@ -9210,7 +9210,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
   m_TargetDisplay: 0
 --- !u!1 &1361372000
 GameObject:
@@ -9514,6 +9514,16 @@ Prefab:
       propertyPath: vrChallenges.Array.data[3]
       value: 
       objectReference: {fileID: 1274075382}
+    - target: {fileID: 20000010787869540, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: m_Depth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010787869540, guid: 7facec65075f7a74b991e26ee3587fc1,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7facec65075f7a74b991e26ee3587fc1, type: 2}
   m_IsPrefabParent: 0
@@ -13497,13 +13507,61 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014173515572, guid: 53568411459e9554f8c1bea81841505d, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.0375221
+      value: 1.2453816
       objectReference: {fileID: 0}
     - target: {fileID: 23000014139475206, guid: 53568411459e9554f8c1bea81841505d,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b8946db55f8b874088a5a705480a432, type: 2}
+    - target: {fileID: 4000012527357900, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.0051038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012527357900, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.1782843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012527357900, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.1782844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012527357900, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.1782844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012618587120, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.0051038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012618587120, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.1141422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012618587120, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.1141423
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012618587120, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.1141423
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012632394084, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.2003423
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013193163882, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.8371
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013193163882, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.2003423
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014173515572, guid: 53568411459e9554f8c1bea81841505d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.0000005
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000011649927770, guid: 53568411459e9554f8c1bea81841505d, type: 2}
     - {fileID: 114000012270752256, guid: 53568411459e9554f8c1bea81841505d, type: 2}

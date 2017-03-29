@@ -41,7 +41,7 @@ public class BoxMotionMenu : BaseColorMenu, IBoxClosed {
         if (hover && !closing && player.HasHammer()) {
             float z = camera.transform.rotation.eulerAngles.z;
             float tilt = ((z > 180) ? (z - 360f) : z) / 90f;
-            if (startTilt + tilt <= startTilt + TILT_AMOUNT) {
+            if (tilt <= startTilt + TILT_AMOUNT) {
                 Close();
             }
         }
