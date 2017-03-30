@@ -96,8 +96,14 @@ public class Player : MonoBehaviour
         float x = camera.transform.rotation.eulerAngles.x;
         float upDown = ((x > 180) ? (x - 360f) : x) / 22.5f; // -4 straight up, 4 straight down, 0 straight forward.
 
-        if (Math.Abs(x) < 15)
-            upDown = 0;
+        if (upDown < -0.5f)
+            upDown *= 0.3f;
+
+        if (Math.Abs(x) < 17)
+        {
+            if (x < 12)
+                upDown = 0;
+        }
 
         float z = camera.transform.rotation.eulerAngles.z;
         float tilt = ((z > 180) ? (z - 360f) : z) / 90f; // 1 tilt left, -1 tilt right, 0 no tilt.
