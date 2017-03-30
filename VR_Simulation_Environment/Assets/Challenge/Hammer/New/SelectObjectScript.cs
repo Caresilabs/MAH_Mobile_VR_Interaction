@@ -9,6 +9,10 @@ public class SelectObjectScript : BaseColorObject {
     [SerializeField]
     private GameObject selectButton;
 
+    bool hover;
+    float currentTime;
+    float MAX_TIME = 0.15f;
+
     void Start() {
         selectButton.SetActive(false);
     }
@@ -23,18 +27,32 @@ public class SelectObjectScript : BaseColorObject {
         color = current.GetComponent<SelectColorHolder>().color;
     }
 
-    public void Select() {
-        selectButton.SetActive(false);
-        if (current != null) {
-            current.fillAmount = 0;
+    public void Select(bool enter) {
+        print("hover " + enter);
+        hover = enter;
+        if (!hover) {
+            currentTime = 0;
         }
-        current = null;
-        ButtonPressed();
     }
 
     void OnDisable() {
         if (current != null) {
             current.fillAmount = 0;
+        }
+    }
+
+    void Update() {
+        if (hover) {
+            print("hover");
+            currentTime += Time.deltaTime;
+        }
+        if (currentTime > MAX_TIME) {
+            selectButton.SetActive(false);
+            if (current != null) {
+                current.fillAmount = 0;
+            }
+            current = null;
+            ButtonPressed();
         }
     }
 }
