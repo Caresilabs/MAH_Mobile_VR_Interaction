@@ -11,6 +11,7 @@ public class RayCastMovement : MonoBehaviour {
     private float STARE_TIME = 0.6f;//0.5f;
     private float MAX_GROW_SIZE = 6f;
     private float MAX_MOVE_DIST = 0.06f;//0.05f;
+    private float MAX_ADDITIONAL_MOVE_DIST = 0.12f;
 
     private float currentTime = 0;
     private Vector3 lastPos;
@@ -29,9 +30,10 @@ public class RayCastMovement : MonoBehaviour {
         if(targetObject.tag == "RaycastFloor")
         {
             render.enabled = true;
-            if(Vector3.Distance(intersectionPosition, transform.position) <= MAX_DIST)
+            float distance = Vector3.Distance(intersectionPosition, transform.position);
+            if (distance <= MAX_DIST)
             {
-                if(Vector3.Distance(intersectionPosition, lastPos) <= MAX_MOVE_DIST)
+                if(Vector3.Distance(intersectionPosition, lastPos) <= MAX_MOVE_DIST + ((distance/ MAX_DIST) * MAX_ADDITIONAL_MOVE_DIST))
                 {
                     currentTime += Time.deltaTime;
                     render.material.SetColor("_Color", Color.green);
