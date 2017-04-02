@@ -22,10 +22,13 @@ public class BoxMenu : BaseColorMenu, IBoxClosed {
     {
         if (boxColor == color)
         {
+            GameManager.Analytics.OnEvent("Box", "Correct", (int)(GameManager.Timer * 1000), true);
             player.SetHammer(false);
             GetComponent<Collider>().enabled = false;
             Close();
         }
+        else
+            GameManager.Analytics.OnEvent("Box", "Wrong", (int)(GameManager.Timer * 1000), true);
         HideCanvas();
     }
 

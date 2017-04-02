@@ -38,7 +38,6 @@ abstract public class BaseColorMenu : MonoBehaviour
 
     protected void HideCanvas() {
         Canvas.SetActive(false);
-        GameManager.Analytics.OnEvent("Canvas", "Hide", (int)(GameManager.Timer * 1000));
     }
 
     public void ShowCanvas()
@@ -46,15 +45,20 @@ abstract public class BaseColorMenu : MonoBehaviour
         if (!ShouldShow())
             return;
 
-        if (player.currentCanvas != null && player.currentCanvas != Canvas)
+        if (player.currentCanvas != null && player.currentCanvas != Canvas && player.currentCanvas.activeSelf)
+            GameManager.Analytics.OnEvent("Canvas", "Show (Hide old)", (int)(GameManager.Timer * 1000), true);
+        else if (player.currentCanvas != null && !player.currentCanvas.activeSelf)
+            GameManager.Analytics.OnEvent("Canvas", "Show", (int)(GameManager.Timer * 1000), true);
+
+        if (player.currentCanvas != null && player.currentCanvas != Canvas) {
             player.currentCanvas.SetActive(false);
+        }
+
         player.currentCanvas = Canvas;
 
         Canvas.gameObject.SetActive(true);
         Quaternion rotation = Quaternion.LookRotation(transform.position - player.transform.position);
         Canvas.transform.rotation = rotation;
-
-        GameManager.Analytics.OnEvent("Canvas", "Show", (int)(GameManager.Timer * 1000), true);
 
     }
 

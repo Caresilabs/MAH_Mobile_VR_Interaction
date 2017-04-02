@@ -9,9 +9,12 @@ public class HammerMenu : BaseColorMenu {
 
     protected override void ColorPressed(BaseColorMenu.ColorType color) {
         if (hammerColor == color) {
+            GameManager.Analytics.OnEvent("Hammer", "Correct", (int)(GameManager.Timer * 1000), true);
+            HideCanvas();
             player.SetHammer(true);
             Destroy(transform.parent.gameObject);
         } else {
+            GameManager.Analytics.OnEvent("Hammer", "Wrong", (int)(GameManager.Timer * 1000), true);
             HideCanvas();
         }
     }

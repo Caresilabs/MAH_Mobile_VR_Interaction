@@ -28,7 +28,6 @@ public class SelectObjectScript : BaseColorObject {
     }
 
     public void Select(bool enter) {
-        print("hover " + enter);
         hover = enter;
         if (!hover) {
             currentTime = 0;
@@ -43,11 +42,12 @@ public class SelectObjectScript : BaseColorObject {
 
     void Update() {
         if (hover) {
-            print("hover");
             currentTime += Time.deltaTime;
         }
         if (currentTime > MAX_TIME) {
             selectButton.SetActive(false);
+            hover = false;
+            currentTime = 0;
             if (current != null) {
                 current.fillAmount = 0;
             }
