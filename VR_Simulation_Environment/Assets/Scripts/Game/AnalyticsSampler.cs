@@ -14,23 +14,26 @@ public class AnalyticsSampler : MonoBehaviour {
 	void Start () {
         SmartAnalytics.SetTrackingID("UA-72246978-2");
 	}
-	
-	// Update is called once per frame
-	//void Update () {
-	
-	//}
+
+    // Update is called once per frame
+    //void Update () {
+
+    //}
 
 
-    public void OnEvent(string action, string label, int data)
+    public void OnEvent(string action, string label, int data) {
+        OnEvent(action, label, data, false);
+    }
+    public void OnEvent(string action, string label, int data, bool otherEvent)
     {
         string cat = game.GetCurrentGameObjectChallenge().name + "-" + game.State.ToString();
-        SaveToDisk(cat, action, label, data);
+        SaveToDisk(cat, action, label, data, otherEvent);
         SmartAnalytics.SendEvent(label, data, action, cat);
     }
 
-    private void SaveToDisk(string cat, string action, string label, int data)
+    private void SaveToDisk(string cat, string action, string label, int data, bool otherEvent)
     {
-        using (FileStream stream = new FileStream(Application.persistentDataPath + "/analytics.simme", FileMode.Append, FileAccess.Write))
+        using (FileStream stream = new FileStream(Application.persistentDataPath + ((otherEvent) ? "/events.patte" : "/analytics.simme"), FileMode.Append, FileAccess.Write))
         {
             using (StreamWriter writer = new StreamWriter(stream))
             {

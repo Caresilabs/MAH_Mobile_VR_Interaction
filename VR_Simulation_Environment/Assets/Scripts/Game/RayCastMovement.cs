@@ -7,10 +7,10 @@ public class RayCastMovement : MonoBehaviour {
     [SerializeField]
     GameObject pointer;
 
-    private float MAX_DIST = 12f;//6f;
-    private float STARE_TIME = 0.6f;//0.5f;
+    private float MAX_DIST = 12f; //6f;
+    private float STARE_TIME = 0.6f; //0.5f;
     private float MAX_GROW_SIZE = 6f;
-    private float MAX_MOVE_DIST = 0.06f;//0.05f;
+    private float MAX_MOVE_DIST = 0.06f; //0.05f;
     private float MAX_ADDITIONAL_MOVE_DIST = 0.12f;
 
     private float currentTime = 0;

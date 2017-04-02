@@ -17,6 +17,9 @@ abstract public class BaseColorMenu : MonoBehaviour
     protected Player player;
 
     [SerializeField]
+    protected GameManager GameManager;
+
+    [SerializeField]
     protected GameObject Canvas;
 
     protected void Start()
@@ -35,6 +38,7 @@ abstract public class BaseColorMenu : MonoBehaviour
 
     protected void HideCanvas() {
         Canvas.SetActive(false);
+        GameManager.Analytics.OnEvent("Canvas", "Hide", (int)(GameManager.Timer * 1000));
     }
 
     public void ShowCanvas()
@@ -49,6 +53,8 @@ abstract public class BaseColorMenu : MonoBehaviour
         Canvas.gameObject.SetActive(true);
         Quaternion rotation = Quaternion.LookRotation(transform.position - player.transform.position);
         Canvas.transform.rotation = rotation;
+
+        GameManager.Analytics.OnEvent("Canvas", "Show", (int)(GameManager.Timer * 1000), true);
 
     }
 
