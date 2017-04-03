@@ -49,6 +49,8 @@ abstract public class BaseColorMenu : MonoBehaviour
             GameManager.Analytics.OnEvent("Canvas", "Show (Hide old)", (int)(GameManager.Timer * 1000), true);
         else if (player.currentCanvas != null && !player.currentCanvas.activeSelf)
             GameManager.Analytics.OnEvent("Canvas", "Show", (int)(GameManager.Timer * 1000), true);
+        else if (player.currentCanvas == null)
+            GameManager.Analytics.OnEvent("Canvas", "Show", (int)(GameManager.Timer * 1000), true);
 
         if (player.currentCanvas != null && player.currentCanvas != Canvas) {
             player.currentCanvas.SetActive(false);

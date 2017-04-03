@@ -33,11 +33,13 @@ public class AnalyticsSampler : MonoBehaviour {
 
     private void SaveToDisk(string cat, string action, string label, int data, bool otherEvent)
     {
+        //print(Application.persistentDataPath);
         using (FileStream stream = new FileStream(Application.persistentDataPath + ((otherEvent) ? "/events.patte" : "/analytics.simme"), FileMode.Append, FileAccess.Write))
         {
             using (StreamWriter writer = new StreamWriter(stream))
             {
-                writer.WriteLine(string.Format("TOD: {4}, Category: {0}, Action: {1}, Label: {2}, Data: {3}"
+                //TOD: {4}, Category: {0}, Action: {1}, Label: {2}, Data: {3}
+                writer.WriteLine(string.Format("{4},{0},{1},{2},{3}"
                     , cat, action, label, data, DateTime.Now));
             }
         }
