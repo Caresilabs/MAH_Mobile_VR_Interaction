@@ -5,7 +5,7 @@ using System;
 public class Player : MonoBehaviour
 {
 
-    public const float MOVE_SPEED = 6;
+    public const float MOVE_SPEED = 5;
 
     public MovementType MoveType { get; private set; }
 
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
                 if (targetObj != null)
                 {
-                    rigidBody.MovePosition(Vector3.MoveTowards(rigidBody.position, targetObj.transform.position, .08f));
+                    rigidBody.MovePosition(Vector3.MoveTowards(rigidBody.position, targetObj.transform.position, Time.deltaTime * MOVE_SPEED)); //.08f
 
                     if (Vector3.Distance(rigidBody.position, targetObj.transform.position) < 0.5f)
                     {
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         }
 
         float z = camera.transform.rotation.eulerAngles.z;
-        float tilt = ((z > 180) ? (z - 360f) : z) / 90f; // 1 tilt left, -1 tilt right, 0 no tilt.
+        float tilt = ((z > 180) ? (z - 360f) : z) / 75f; // 1 tilt left, -1 tilt right, 0 no tilt.
 
         if (Math.Abs(z) < 15)
             tilt = 0;
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
         }
         targetVelocity = transform.TransformDirection(targetVelocity);
 
-        targetVelocity *= Player.MOVE_SPEED;
+        targetVelocity *= MOVE_SPEED;
 
         // Apply a force that attempts to reach our target velocity
         Vector3 velocity = rigidBody.velocity;

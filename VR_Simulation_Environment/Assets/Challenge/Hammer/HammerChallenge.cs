@@ -116,6 +116,7 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
 	    foreach(GameObject go in spawnedObjects) {
             if (!started && go == null)
                 OnHammerStart();
+
             if(go != null) {
                 IBoxClosed ibc = go.GetComponentInChildren<IBoxClosed>();
                 if(ibc != null) {
