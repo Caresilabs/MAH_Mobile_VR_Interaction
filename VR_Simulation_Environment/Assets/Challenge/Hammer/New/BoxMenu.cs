@@ -24,7 +24,6 @@ public class BoxMenu : BaseColorMenu, IBoxClosed {
         {
             GameManager.Analytics.OnEvent("Box", "Correct", (int)(GameManager.Timer * 1000), true);
             player.SetHammer(false);
-            GetComponent<Collider>().enabled = false;
             Close();
         }
         else
@@ -63,7 +62,7 @@ public class BoxMenu : BaseColorMenu, IBoxClosed {
 
     public override void SetColor(ColorType type)
     {
-        for (int i = 0; i < transform.childCount - 1; i++)
+        for (int i = 0; i < transform.childCount - 2; i++)
         {
             transform.GetChild(i).GetComponent<Renderer>().material.color = ColorTypeToColor(type);
             boxColor = type;

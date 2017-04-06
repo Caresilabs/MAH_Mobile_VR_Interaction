@@ -42,6 +42,8 @@ public class RayCastMovement : MonoBehaviour {
                         GetComponent<Rigidbody>().MovePosition(new Vector3(pointer.transform.position.x, 
                             GetComponent<Rigidbody>().transform.position.y, 
                             pointer.transform.position.z));
+                        currentTime = 0;
+                        pointer.transform.GetChild(0).transform.localScale = new Vector3(0, 0.1f, 0);
                     }
                 }
                 else
