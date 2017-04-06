@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         }
 
         float z = camera.transform.rotation.eulerAngles.z;
-        float tilt = ((z > 180) ? (z - 360f) : z) / 90f; // 1 tilt left, -1 tilt right, 0 no tilt.
+        float tilt = ((z > 180) ? (z - 360f) : z) / 75f; // 1 tilt left, -1 tilt right, 0 no tilt.
 
         if (Math.Abs(z) < 15)
             tilt = 0;
