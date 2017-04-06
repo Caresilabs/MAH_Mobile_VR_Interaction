@@ -62,6 +62,7 @@ public class HammerChallenge : MonoBehaviour, IChallenge {
         readyMenu.gameObject.SetActive(false);
 
         isStopped = false;
+        started = false;
     }
 
     public void OnHammerStart() {

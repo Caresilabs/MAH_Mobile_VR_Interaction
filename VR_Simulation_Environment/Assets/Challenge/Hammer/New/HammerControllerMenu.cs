@@ -26,10 +26,12 @@ public class HammerControllerMenu : BaseColorMenu {
     public void Enter(bool enter) {
         hover = enter;
         if (enter) {
+            GameManager.Analytics.OnEvent("Canvas", "Show!", (int)(GameManager.Timer * 1000), true);
             ShowCanvas();
             timer = 0.8f;
             cross.enabled = false;
         } else {
+            GameManager.Analytics.OnEvent("Canvas", "Hide!", (int)(GameManager.Timer * 1000), true);
             HideCanvas();
         }
     }
@@ -54,9 +56,11 @@ public class HammerControllerMenu : BaseColorMenu {
     public void Check(ColorType type) {
         if (timer > DELAY) {
             if (hammerColor == type) {
+                GameManager.Analytics.OnEvent("Canvas", "Correct!", (int)(GameManager.Timer * 1000), true);
                 player.SetHammer(true);
                 Destroy(transform.parent.gameObject);
             } else {
+                GameManager.Analytics.OnEvent("Canvas", "Wrong!", (int)(GameManager.Timer * 1000), true);
                 timer = 0;
                 cross.enabled = true;
             }

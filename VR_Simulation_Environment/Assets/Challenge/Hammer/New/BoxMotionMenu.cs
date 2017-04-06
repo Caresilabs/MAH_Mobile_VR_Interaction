@@ -33,6 +33,7 @@ public class BoxMotionMenu : BaseColorMenu, IBoxClosed {
             float z = camera.transform.rotation.eulerAngles.z;
             startTilt = ((z > 180) ? (z - 360f) : z) / 90f;
         } else {
+            GameManager.Analytics.OnEvent("Canvas", "Hide", (int)(GameManager.Timer * 1000), true);
             HideCanvas();
         }
     }
@@ -67,6 +68,7 @@ public class BoxMotionMenu : BaseColorMenu, IBoxClosed {
     {
         if (!closing)
         {
+            GameManager.Analytics.OnEvent("Canvas", "Correct", (int)(GameManager.Timer * 1000), true);
             HideCanvas();
             player.SetHammer(false);
             closing = true;

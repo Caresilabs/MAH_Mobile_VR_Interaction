@@ -29,6 +29,7 @@ public class HammerMotionMenu : BaseColorMenu {
             float z = camera.transform.rotation.eulerAngles.z;
             startTilt = ((z > 180) ? (z - 360f) : z) / 90f;
         } else {
+            GameManager.Analytics.OnEvent("Canvas", "Hide", (int)(GameManager.Timer * 1000), true);
             HideCanvas();
         }
     }
@@ -38,6 +39,7 @@ public class HammerMotionMenu : BaseColorMenu {
             float z = camera.transform.rotation.eulerAngles.z;
             float tilt = ((z > 180) ? (z - 360f) : z) / 90f;
             if(tilt >= startTilt + TILT_AMOUNT) {
+                GameManager.Analytics.OnEvent("Canvas", "Correct", (int)(GameManager.Timer * 1000), true);
                 player.SetHammer(true);
                 Destroy(transform.parent.gameObject);
             }
